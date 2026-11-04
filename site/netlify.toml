@@ -1,0 +1,5 @@
+# Site estatico pronto: index.html e todos os recursos estao na raiz.
+# Nao usa npm, nao gera dist e nao executa migracoes de banco.
+[build]
+  command = "test -f index.html"
+  publish = "."

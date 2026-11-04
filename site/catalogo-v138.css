@@ -1,0 +1,26 @@
+.bml-skip-search {
+  position: fixed;
+  z-index: 1100;
+  top: 1rem;
+  left: 1rem;
+  padding: .75rem 1rem;
+  background: #082b59;
+  color: #fff;
+  border-radius: .5rem;
+  transform: translateY(calc(-100% - 2rem));
+}
+.bml-skip-search:focus { transform: none; }
+html.library-locked .bml-skip-search { display: none; }
+#catalogo :is(button, input, select, a):focus-visible,
+.bml-skip-search:focus-visible {
+  outline: 3px solid #287bd1;
+  outline-offset: 3px;
+}
+body[data-bml-theme="dark"] #catalogo :focus-visible { outline-color: #a5c7ff; }
+#search, #results { scroll-margin-top: 6rem; }
+@media (max-width: 480px) {
+  #searchPanel input { font-size: 16px; }
+  #searchPanel :is(select, .filter-toggle), #loadMore { min-height: 44px; }
+  #catalogo :is(.control-group, .sort-row) { min-width: 0; }
+  #catalogo select { max-width: 100%; }
+}

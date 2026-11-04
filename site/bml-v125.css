@@ -1,0 +1,48 @@
+/* V125: detalhes legíveis nos dois temas, sem alterar ações ou permissões. */
+body #locationModal{--detail-bg:#fff;--detail-surface:#f0f5fb;--detail-ink:#152c48;--detail-muted:#52667e;--detail-line:#d5e0ed;--detail-accent:#1756b5;--detail-good:#11633f;--detail-good-bg:#e2f4e9;background:#081a38a6!important;backdrop-filter:blur(8px)}
+body[data-bml-theme=dark] #locationModal{--detail-bg:#142337;--detail-surface:#1e324b;--detail-ink:#f0f5fc;--detail-muted:#b4c7df;--detail-line:#38506c;--detail-accent:#a6cdff;--detail-good:#a4efc8;--detail-good-bg:#164435}
+body #locationModal .modal{background:var(--detail-bg)!important;color:var(--detail-ink)!important;border:1px solid var(--detail-line)!important;border-radius:24px!important;box-shadow:0 28px 100px #020d2359!important;overflow:hidden;max-height:calc(100dvh - 32px);overflow-y:auto}
+body #locationModal .modal-head{background:var(--detail-bg)!important;border-bottom:1px solid var(--detail-line)!important;padding:20px 26px!important;color:var(--detail-ink)!important}
+body #locationModal .modal-head>strong{font-size:15px;font-weight:650;letter-spacing:.01em;color:var(--detail-muted)!important}
+body #locationModal .modal-close{background:var(--detail-surface)!important;color:var(--detail-ink)!important;border:1px solid var(--detail-line)!important;width:40px;height:40px;border-radius:50%}
+body #locationModal .modal-body{padding:28px!important;background:var(--detail-bg)!important}
+body #locationBody .detail-top{grid-template-columns:170px minmax(0,1fr)!important;gap:28px!important;align-items:center!important}
+body #locationBody .detail-top>div{min-width:0}
+body #locationBody .detail-cover{width:170px!important;height:250px!important;object-fit:contain!important;background:var(--detail-surface)!important;border:1px solid var(--detail-line)!important;border-radius:12px!important;box-shadow:0 12px 28px #020b2333!important}
+body #locationBody .detail-title{font-family:Georgia,"Times New Roman",serif!important;font-size:clamp(1.6rem,3vw,2.3rem)!important;font-weight:700!important;line-height:1.18!important;color:var(--detail-ink)!important;margin:0 0 12px!important;overflow-wrap:anywhere}
+body #locationBody .detail-author{font-size:15px!important;font-weight:500!important;line-height:1.6!important;color:var(--detail-muted)!important;margin:0 0 16px!important}
+body #locationBody .availability{margin:0 0 22px!important}
+body #locationBody .avail-pill,body #locationBody .bml-book-status{background:var(--detail-good-bg)!important;color:var(--detail-good)!important;border:0!important;padding:7px 12px;border-radius:9px}
+body #locationBody .detail-actions{gap:10px!important}
+body #locationBody .detail-actions .btn{background:var(--detail-surface)!important;color:var(--detail-accent)!important;border:1px solid var(--detail-line)!important;border-radius:11px!important;padding:11px 16px!important;font-size:14px!important;font-weight:650!important}
+body #locationBody .detail-loan-btn{background:#087b58!important;color:#fff!important;border:1px solid #087b58!important;border-radius:11px!important;padding:11px 16px!important;font-size:14px!important;font-weight:650!important}
+body #locationBody .detail-actions button:disabled{opacity:.6;cursor:not-allowed}
+body #locationBody .v96-location{border-top-color:var(--detail-line)!important;margin-top:28px;padding-top:22px}
+body #locationBody .v96-location-head strong{font:650 15px/1.4 system-ui,sans-serif!important;color:var(--detail-ink)!important}
+body #locationBody .v96-location-head span,body #locationBody .v96-location-row span{color:var(--detail-muted)!important}
+body #locationBody .v96-location-row{background:var(--detail-surface)!important;border-color:var(--detail-line)!important;padding:15px 16px;border-radius:12px}
+body #locationBody .v96-location-row b{color:var(--detail-accent)!important}
+body #locationBody .v96-location-row strong{color:var(--detail-good)!important}
+body #locationBody .v96-location-empty{color:var(--detail-muted)!important;border-color:var(--detail-line)!important}
+body #locationModal button:focus-visible{outline:3px solid var(--detail-accent)!important;outline-offset:3px}
+/* Fundo e texto do campo são definidos em conjunto, inclusive ao revelar senha. */
+html body #authModal .auth-input-wrap input{background:transparent!important;color:#172c47!important;-webkit-text-fill-color:#172c47!important;caret-color:#1756b5!important;box-shadow:none!important;border:0!important}
+html body #authModal .auth-input-wrap{background:#fff!important;border-color:#bacbdd!important}
+html body #authModal .auth-input-wrap input::placeholder{color:#63758c!important;-webkit-text-fill-color:#63758c!important;opacity:1}
+html body #authModal .auth-show-pass{background:transparent!important;color:#1756b5!important;min-width:58px;align-self:stretch;border:0!important}
+html body[data-bml-theme=dark] #authModal .auth-input-wrap{background:#0e1b2d!important;border-color:#4a6484!important;color-scheme:dark}
+html body[data-bml-theme=dark] #authModal .auth-input-wrap input{background:transparent!important;color:#f0f5fc!important;-webkit-text-fill-color:#f0f5fc!important;caret-color:#a6cdff!important;color-scheme:dark}
+html body[data-bml-theme=dark] #authModal .auth-input-wrap input::placeholder{color:#a9bdd6!important;-webkit-text-fill-color:#a9bdd6!important}
+html body[data-bml-theme=dark] #authModal .auth-show-pass{color:#a6cdff!important}
+html body #authModal input:autofill{box-shadow:0 0 0 1000px #fff inset!important;-webkit-text-fill-color:#172c47!important}
+html body[data-bml-theme=dark] #authModal input:autofill{box-shadow:0 0 0 1000px #0e1b2d inset!important;-webkit-text-fill-color:#f0f5fc!important}
+@media(max-width:620px){body #locationModal .modal-head{padding:16px 18px!important}body #locationModal .modal-body{padding:20px!important}body #locationBody .detail-top{grid-template-columns:100px minmax(0,1fr)!important;gap:16px!important;align-items:start!important}body #locationBody .detail-cover{width:100px!important;height:150px!important}body #locationBody .detail-title{font-size:1.45rem!important}body #locationBody .detail-author{font-size:13px!important}body #locationBody .detail-actions{grid-template-columns:1fr!important}body #locationBody .detail-actions .btn{white-space:normal!important}body #locationBody .v96-location-row{grid-template-columns:1fr auto;gap:7px}}
+@media(max-width:360px){body #locationBody .detail-top{grid-template-columns:1fr!important}body #locationBody .detail-cover{width:120px!important;height:180px!important;margin:0 auto}}
+
+body #locationBody .avail-pill.none,body #locationBody .bml-book-status.is-unavailable{background:#ffe4e8!important;color:#90253c!important}
+body #locationBody .avail-pill.loan-pill{background:var(--detail-surface)!important;color:var(--detail-muted)!important}
+body[data-bml-theme=dark] #locationBody .avail-pill.none,body[data-bml-theme=dark] #locationBody .bml-book-status.is-unavailable{background:#4d2635!important;color:#ffc0cd!important}
+/* Os rótulos também precisam acompanhar o contraste do campo. */
+html body[data-bml-theme=dark] #authModal .form-field>label,html body[data-bml-theme=dark] #authModal .auth-dialog-intro h2,html body[data-bml-theme=dark] #authModal .bml-login-brand{color:#f0f5fc!important}
+html body[data-bml-theme=dark] #authModal .auth-dialog-intro p,html body[data-bml-theme=dark] #authModal .auth-switch,html body[data-bml-theme=dark] #authModal .auth-field-helper,html body[data-bml-theme=dark] #authModal .auth-dialog-footer,html body[data-bml-theme=dark] #authModal .bml-login-school{color:#b4c7df!important}
+html body[data-bml-theme=dark] #authModal .auth-switch button,html body[data-bml-theme=dark] #authModal [data-toggle-password]{color:#a6cdff!important}

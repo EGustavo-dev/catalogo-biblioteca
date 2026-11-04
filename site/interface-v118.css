@@ -1,0 +1,103 @@
+/* Cartão compacto, branco e azul; autenticação existente preservada. */
+#authModal{background:#f7f9fc!important;backdrop-filter:none!important;padding:24px!important}
+#authModal .auth-dialog{width:100%!important;max-width:390px!important;border:1px solid #e3e9f2!important;border-radius:16px!important;background:#fff!important;box-shadow:0 12px 42px #17345c12!important;overflow:visible!important;min-height:0!important}
+#authModal .bml-auth-form-panel{padding:28px!important;background:transparent!important}
+#authModal .auth-dialog-head{padding:0!important;border:0!important;justify-content:center;position:relative;margin-bottom:24px}
+#authModal .auth-book-symbol{width:32px;height:32px}
+#authModal .auth-caption{font-size:9px;letter-spacing:.14em}
+#authModal .bml-login-brand{font-size:17px;color:#174b8f}
+#authModal .modal-close{position:absolute;right:-16px;top:-16px;width:28px;height:28px;font-size:15px}
+#authModal .auth-dialog-body{padding:0!important}
+#authModal .auth-dialog-intro{text-align:center;margin:0 0 22px!important}
+#authModal .auth-dialog-intro h2{font-size:23px!important;line-height:1.3!important;letter-spacing:-.5px;color:#172c47!important}
+#authModal .auth-dialog-intro p{font-size:13px!important;line-height:1.6!important;color:#728095!important;margin-top:7px}
+#authModal .auth-tabs{display:none!important}
+#authModal .auth-input-wrap>span{display:none!important}
+#authModal .auth-form{gap:17px!important}
+#authModal .form-field label{font-size:13px!important;color:#33465f!important;margin-bottom:7px}
+#authModal .auth-input-wrap{border:1px solid #d8e1ee!important;background:#fff!important;border-radius:7px!important;min-height:43px!important;box-shadow:none!important}
+#authModal .auth-input-wrap:focus-within{outline:3px solid #2563eb24;border-color:#2563eb!important}
+#authModal .auth-input-wrap input{padding:10px 12px!important;font-size:14px!important;background:transparent!important;color:#172c47!important;min-width:0}
+#authModal .auth-show-pass{font-size:11px;color:#2563eb;padding:8px}
+#authModal .auth-submit{height:43px!important;border-radius:7px!important;background:#2563eb!important;box-shadow:none!important;font-size:14px!important;margin-top:3px!important}
+#authModal .auth-switch{font-size:12px!important;margin:3px 0 0!important;color:#6b778c}
+#authModal .auth-switch button{color:#2563eb!important}
+#authModal .auth-dialog-footer{font-size:10px!important;border:0!important;margin:20px 0 0!important;padding:0!important;color:#8290a2!important}
+#authModal .bml-login-school{text-align:center;font-size:10px;color:#94a0b2;margin:16px 0 0}
+body{padding-bottom:110px!important}
+.library-dock{position:fixed;z-index:90;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:end;gap:10px;padding:11px 13px;border:1px solid #d8e1ee;background:#ffffffed;border-radius:23px;box-shadow:0 8px 32px #17345c1c;backdrop-filter:blur(16px);max-width:calc(100vw - 24px)}
+.library-dock-item{position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #e4eaf3;border-radius:50%;background:#edf3fc;color:#355578;cursor:pointer;flex-shrink:0}
+.library-dock-item:focus-visible{outline:3px solid #2563eb;outline-offset:4px}
+.library-dock-label{position:absolute;bottom:calc(100% + 13px);left:50%;transform:translateX(-50%);background:#18365a;color:#fff;padding:5px 9px;border-radius:6px;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none}
+.library-dock-item:hover .library-dock-label,.library-dock-item:focus-visible .library-dock-label{opacity:1}
+.library-dock-icon{display:flex}
+body[data-bml-theme=dark] #authModal{background:#0c1423!important}
+body[data-bml-theme=dark] #authModal .auth-dialog{background:#152237!important;border-color:#2a3d56!important}
+body[data-bml-theme=dark] #authModal .auth-dialog-intro h2,body[data-bml-theme=dark] #authModal .form-field label,body[data-bml-theme=dark] #authModal .bml-login-brand{color:#e7eefb!important}
+body[data-bml-theme=dark] #authModal .auth-input-wrap{background:#0f1c30!important;border-color:#34475f!important}
+body[data-bml-theme=dark] #authModal .auth-input-wrap input{color:#e7eefb!important}
+body[data-bml-theme=dark] .library-dock{background:#142238ed;border-color:#34475f}
+body[data-bml-theme=dark] .library-dock-item{background:#243750;color:#dce8fb;border-color:#34475f}
+@media(max-width:480px){.library-dock{gap:7px;padding:9px 10px;bottom:max(10px,env(safe-area-inset-bottom))}.library-dock-item{width:41px;height:41px}#authModal{padding:16px!important}#authModal .bml-auth-form-panel{padding:25px!important}}
+@media(prefers-reduced-motion:reduce){.library-dock-item{transform:none!important;transition:none!important}}
+html.library-locked #authModal .auth-dialog{max-width:390px!important;width:100%!important;border-radius:16px!important;box-shadow:0 12px 42px #17345c12!important}
+html.library-locked #authModal .bml-auth-form-panel{padding:28px!important}
+html.library-locked #authModal .auth-dialog-head{margin-bottom:20px!important;padding:0!important}
+html.library-locked #authModal .auth-dialog-body{padding:0!important}
+html.library-locked #authModal .auth-heading-lockup{display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important}
+html.library-locked #authModal .auth-book-symbol{width:30px!important;height:30px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
+html.library-locked #authModal .auth-brand-wordmark{text-align:left!important}
+html.library-locked #authModal .auth-dialog-intro{margin:0 0 20px!important}
+html.library-locked #authModal .auth-dialog-intro h2{font-size:23px!important}
+html.library-locked #authModal .auth-input-wrap input{padding:10px 12px!important;height:42px!important}
+html.library-locked #authModal .auth-input-wrap{min-height:42px!important;box-shadow:none!important}
+html.library-locked #authModal .auth-submit{height:43px!important;box-shadow:none!important;border-radius:7px!important}
+html.library-locked #authModal .auth-dialog-footer{padding:0!important;margin:18px 0 0!important;border:0!important;font-size:10px!important}
+#authModal .auth-note{font-size:11px!important;line-height:1.5!important;padding:0!important;margin:0 0 15px!important}
+/* V117: o dock substitui a navegação do cabeçalho. Sem barra no rodapé. */
+body{padding-bottom:0!important}
+.site-header .header-inner{display:grid!important;grid-template-columns:minmax(180px,1fr) auto minmax(0,1fr)!important;gap:20px!important;position:relative!important}
+#libraryDockRoot{grid-column:2;min-width:0;justify-self:center}
+#libraryDockRoot .library-dock{position:relative;inset:auto;transform:none;max-width:none;margin:0;gap:8px;padding:8px 10px;border-radius:20px;box-shadow:none;background:#f5f8fd}
+#libraryDockRoot .library-dock-item{width:42px;height:42px;background:#e7eef8;border-color:transparent;color:#4c6585}
+#libraryDockRoot .library-dock-item.is-active{background:#2563eb;color:#fff;border-color:#2563eb}
+#libraryDockRoot .library-dock-label{bottom:auto;top:calc(100% + 12px);z-index:3}
+.site-header .header-actions{position:absolute!important;right:0;top:100%;margin:0!important;min-width:0!important}
+.site-header .bml-header-quick{display:none!important}
+.site-header .bml-tools-menu{top:8px!important;right:0!important}
+body[data-bml-theme=dark] #libraryDockRoot .library-dock{background:#18283d;border-color:#30445e}
+body[data-bml-theme=dark] #libraryDockRoot .library-dock-item{background:#24384f;color:#c6d7ee}
+body[data-bml-theme=dark] #libraryDockRoot .library-dock-item.is-active{background:#2563eb;color:#fff}
+/* Contêineres transparentes evitam retângulos claros atrás dos controles. */
+body[data-bml-theme=dark] #searchPanel,
+body[data-bml-theme=dark] #searchPanel .search-row,
+body[data-bml-theme=dark] #searchPanel .control-group,
+body[data-bml-theme=dark] #searchPanel .bml-search-more,
+body[data-bml-theme=dark] #searchPanel .active-filters,
+body[data-bml-theme=dark] .section-head .sort-row{background:transparent!important;box-shadow:none!important}
+body[data-bml-theme=dark] #searchPanel .filter-bar,
+body[data-bml-theme=dark] #searchPanel .suggestions,
+body[data-bml-theme=dark] .modal,
+body[data-bml-theme=dark] .sort-row,
+body[data-bml-theme=dark] .bml-view-group{background:#18273a!important;border-color:#344963!important;color:#d5e2f5!important}
+body[data-bml-theme=dark] #searchPanel .searchbox,
+body[data-bml-theme=dark] #searchPanel input,
+body[data-bml-theme=dark] select,
+body[data-bml-theme=dark] select option{background:#1c3048!important;color:#e0ebfa!important;border-color:#344963!important;color-scheme:dark}
+body[data-bml-theme=dark] input::placeholder{color:#a5b8d1!important}
+body[data-bml-theme=dark] .chip{background:#1c3048!important;color:#c6d7ee!important;border-color:#344963!important}
+body[data-bml-theme=dark] .chip.active,
+body[data-bml-theme=dark] .chip.selected,
+body[data-bml-theme=dark] .chip[aria-pressed=true],
+body[data-bml-theme=dark] .bml-view-btn.active{background:#245db1!important;color:#fff!important;border-color:#5086d2!important}
+body[data-bml-theme=dark] .suggestion-item{color:#dce8f8!important;background:transparent!important}
+body[data-bml-theme=dark] .suggestion-item:hover,
+body[data-bml-theme=dark] .suggestion-item.active{background:#284364!important}
+@media(max-width:800px){.site-header .header-inner{grid-template-columns:1fr!important;gap:12px!important;padding-bottom:12px!important}.site-header .school-brand{justify-self:center!important}#libraryDockRoot{grid-column:1;grid-row:2}#libraryDockRoot .library-dock{gap:6px;padding:7px 8px}#libraryDockRoot .library-dock-item{width:38px;height:38px}.site-header .header-actions{width:100%!important}}
+@media(max-width:350px){#libraryDockRoot .library-dock{gap:4px;padding:6px}#libraryDockRoot .library-dock-item{width:35px;height:35px}}
+.book-cover-wrap{position:relative}
+.cover-pending-label{display:block;font:500 10px/1.4 system-ui,sans-serif;text-align:center;color:#65758a;background:#edf2f8;padding:4px 6px;border-radius:5px}
+.book-cover-wrap>.cover-pending-label{position:absolute;bottom:7px;left:7px;right:7px;z-index:2;background:#fffffff0}
+body[data-bml-theme=dark] .cover-pending-label{background:#142338eb;color:#c7d7ec}
+body[data-bml-theme=dark] #searchPanel .active-filters,body[data-bml-theme=dark] #searchPanel .bml-search-more{border-color:#30445e!important}
+body[data-bml-theme=dark] #searchPanel .active-filter{background:#1d3f6b!important;color:#dbeafe!important;border-color:#34679f!important}

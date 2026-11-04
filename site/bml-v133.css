@@ -1,0 +1,22 @@
+body section.hero.bml-books-only .hero-inner{padding-top:8px!important;padding-bottom:0!important}
+body section.hero.bml-books-only .hero-banner-shell,body section.hero.bml-books-only #heroBannerTrack{height:294px!important}
+.bml-refine{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;padding:14px 0 0;border-top:1px solid #d6e2ee;margin-top:14px}
+.bml-refine label{display:grid;gap:6px;font-size:12px;font-weight:650;color:#526a85;min-width:0}
+.bml-refine select{width:100%;min-width:0;max-width:100%;height:40px;border:1px solid #cfdeec;border-radius:10px;padding:0 10px;background:#fff;color:#183653;font-size:12px}
+.bml-refine-clear{height:40px;padding:0 14px;border:1px solid #cfdeec;border-radius:10px;background:transparent;color:#315a83;cursor:pointer;font-weight:600}
+body #results .book-card{border-radius:14px!important;box-shadow:none!important;border:1px solid #dbe5ef!important;overflow:hidden}
+body #results .book-cover-wrap{background:transparent!important}
+body #results .book-cover{object-fit:contain!important}
+body #results .book-title{font-size:14px!important;line-height:1.4!important;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;min-height:3.9em}
+body #results .book-author{font-size:12px!important;line-height:1.45!important;color:#60758a!important}
+body .bml-book-status{font-size:11px!important;font-weight:650!important;border-radius:6px!important;padding:5px 8px!important}
+#libraryDockRoot button:focus-visible,#libraryDockRoot a:focus-visible,.bml-refine :focus-visible{outline:3px solid #499bff;outline-offset:3px}
+.bml-admin-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}
+.bml-admin-overview>div{padding:15px;background:#eff5fc;border:1px solid #d9e5f2;border-radius:12px;display:grid;gap:5px}
+.bml-admin-overview strong{font-size:26px;color:#164c8c}.bml-admin-overview span{font-size:12px;color:#506b88}
+.bml-loan-overdue{border-left:4px solid #d66442!important}.bml-loan-overdue .loan-status{color:#a83822!important;background:#fff0e8!important}
+body[data-bml-theme=dark] .bml-refine{border-color:#30455c}body[data-bml-theme=dark] .bml-refine label{color:#b4c8de}body[data-bml-theme=dark] .bml-refine select,body[data-bml-theme=dark] .bml-refine-clear{background:#1c3047;color:#e0ebf8;border-color:#3b526c}
+body[data-bml-theme=dark] #results .book-card{border-color:#334960!important}body[data-bml-theme=dark] #results .book-author{color:#acc1d8!important}
+body[data-bml-theme=dark] .bml-admin-overview>div{background:#1b3048;border-color:#354d69}body[data-bml-theme=dark] .bml-admin-overview strong{color:#9dc8ff}body[data-bml-theme=dark] .bml-admin-overview span{color:#bacde1}
+@media(max-width:700px){.bml-refine{grid-template-columns:1fr 1fr;gap:10px}.bml-admin-overview{grid-template-columns:1fr}.bml-admin-overview>div{grid-template-columns:50px 1fr;align-items:center}body section.hero.bml-books-only .hero-banner-shell,body section.hero.bml-books-only #heroBannerTrack{height:250px!important}}
+@media(max-width:420px){.bml-refine{grid-template-columns:1fr}.bml-refine-clear{justify-self:start}body #results .book-title{font-size:13px!important}}

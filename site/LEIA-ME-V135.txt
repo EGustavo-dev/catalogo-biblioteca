@@ -1,0 +1,6 @@
+V135 — Carrossel amplo conforme a referência.
+Até 11 livros em largura total, capas centrais maiores, sem textos ou fundo de banner, pesquisa abaixo.
+Inclui botão de recuperação: Minha conta > Usuários e permissões > Redefinir senha. Servidor atualizado. A verificação positiva desse novo botão ainda depende da publicação desta pasta.
+Testados no site: cadastro/leitor, login proprietário, inclusão/edição/pesquisa/favorito/empréstimo/devolução. Livro temporário 1435 removido após o teste. Contagem final: 1432 registros.
+A limpeza de quatro contas identificadas de teste e de um empréstimo temporário devolvido continua pendente porque a confirmação da ferramenta expirou.
+Extraia todo o conteúdo e envie à Netlify. O backup é entregue separado e não deve ser publicado.

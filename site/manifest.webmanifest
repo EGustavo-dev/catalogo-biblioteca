@@ -1,0 +1,41 @@
+{
+  "id": "/",
+  "name": "Biblioteca Monteiro Lobato",
+  "short_name": "Monteiro Lobato",
+  "description": "Aplicativo instalável da biblioteca escolar: acervo, busca, prateleiras e empréstimos.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "background_color": "#f4f8ff",
+  "theme_color": "#0869f9",
+  "categories": [
+    "education",
+    "books"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icone-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

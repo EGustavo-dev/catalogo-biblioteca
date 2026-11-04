@@ -1,0 +1,45 @@
+BIBLIOTECA MONTEIRO LOBATO — V136
+
+Pacote completo para atualização no Netlify após a renovação dos créditos.
+Extraia o ZIP e envie a pasta cujo nível principal contém index.html.
+Nada foi publicado automaticamente nesta atualização.
+
+INCLUÍDO
+- Página pública /privacidade/ e redirecionamento de /privacidade.
+- Link no rodapé do catálogo, da página offline e da política.
+- Link adicional na tela de acesso, visível sem entrar na conta.
+- Integração de estatísticas preparada, DESATIVADA e sem ID fictício.
+- Atualizações anteriores, inclusive o carrossel ampliado, preservadas.
+
+PENDÊNCIAS INSTITUCIONAIS
+A política descreve o código verificado, mas a escola ainda precisa confirmar:
+1. Identificação formal do controlador (nome/razão social e identificação aplicável).
+2. Canal de atendimento de privacidade.
+3. Prazos de guarda e descarte, incluindo backups e logs.
+4. Bases legais, procedimentos para menores e condições dos fornecedores.
+O aviso mostra essas lacunas; não é uma declaração de conformidade integral.
+Nenhum CNPJ, CPF, endereço ou e-mail foi inventado.
+
+GOOGLE ANALYTICS — QUANDO EXISTIR UM ID REAL
+1. Em analytics.google.com, crie uma conta/propriedade GA4 para a instituição.
+2. Em Administrador > Fluxos de dados > Web, cadastre o domínio do catálogo.
+3. Copie o ID de medição que começa com G-.
+4. Revise a política institucional antes de ativar a ferramenta.
+5. No fluxo Web, desative a Medição otimizada automática, especialmente buscas,
+   formulários, cliques externos e alterações de histórico. O aplicativo envia
+   somente as visualizações previstas e os contatos explicitamente marcados.
+6. Em analytics-config.js, preencha measurementId com o ID real e enabled: true.
+7. Publique e escolha Permitir estatísticas. Confira Tempo real no Analytics.
+   Com a configuração atual vazia, nenhum script Google Analytics é carregado.
+
+O gtag.js é assíncrono, no head, e só carrega depois da autorização opcional.
+Recusar não bloqueia o catálogo; a escolha pode ser alterada na política.
+As URLs enviadas removem query e fragmento; nome, e-mail, senha e campos dos
+formulários não são enviados pela integração preparada.
+As páginas são documentos estáticos, sem navegação SPA: filtros não são páginas.
+Não foi criado evento de lead para cadastro ou empréstimo escolar.
+Não há WhatsApp/formulário comercial no pacote atual. Caso seja criado um link
+real de contato WhatsApp, marque-o com data-analytics-contact="whatsapp" para
+que o clique autorizado gere generate_lead, sem enviar o número ao Analytics.
+A medição no relatório Tempo real depende de ID verdadeiro e publicação;
+não foi possível validá-la nesta versão desativada.

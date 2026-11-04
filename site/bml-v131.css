@@ -1,0 +1,47 @@
+/* Coverflow adapted from the supplied reference; uses the existing catalog. */
+.hero .hero-banner-shell.bml-coverflow{background:radial-gradient(ellipse at 50% 35%,#e2edfc,transparent 65%),#f7faff!important;border:1px solid #dce7f3!important;border-radius:26px!important;min-height:0!important;overflow:hidden!important;padding:30px 0 22px!important;box-shadow:none!important}
+.bml-coverflow #heroBannerTrack{display:block!important;position:relative!important;height:300px!important;transform:none!important;perspective:850px;touch-action:pan-y;cursor:grab;overflow:hidden!important;width:100%!important}
+.bml-coverflow .cf-book{position:absolute;left:50%;top:12px;width:180px;height:270px;padding:0;border:0;border-radius:7px;background:#e7eef7;box-shadow:0 16px 26px #112c5630;transform-origin:center;transition:transform .65s cubic-bezier(.22,.7,.25,1),opacity .65s;cursor:pointer;overflow:hidden}
+.bml-coverflow .cf-book:focus-visible{outline:3px solid #1974d2;outline-offset:4px}
+.bml-coverflow .cf-cover{display:block;width:100%!important;height:100%!important;object-fit:contain!important;pointer-events:none;user-select:none}
+.bml-coverflow .cf-caption{text-align:center;position:relative;max-width:650px;margin:12px auto 0;padding:0 24px;min-height:144px}
+.bml-coverflow .cf-kicker{font-size:10px;font-weight:800;letter-spacing:.18em;color:#55759a}
+.bml-coverflow .cf-caption h1{font-family:Georgia,serif;font-size:clamp(1.35rem,2.5vw,1.9rem)!important;line-height:1.2!important;color:#12335c!important;letter-spacing:-.025em;margin:9px auto 6px!important;max-width:100%!important}
+.bml-coverflow .cf-caption p{font-size:14px;color:#60758e;margin:0 0 13px}
+.bml-coverflow .cf-open{border:0;border-radius:999px;padding:9px 22px;color:white;background:#1464bc;font-weight:700;cursor:pointer}
+.bml-coverflow .hero-banner-arrow{top:155px!important;background:white!important;color:#194a80!important;border:1px solid #d5e2f1!important;box-shadow:0 4px 14px #163f6712!important;z-index:201!important}
+.bml-coverflow #heroBannerDots{position:static!important;transform:none!important;display:flex!important;justify-content:center;gap:9px;margin:14px auto 10px!important}
+.bml-coverflow .hero-banner-dot{width:7px!important;height:7px!important;background:#a8bed6!important;border:0!important;padding:0!important;border-radius:50%;cursor:pointer}
+.bml-coverflow .hero-banner-dot[aria-current=true]{background:#1764b5!important;width:22px!important;border-radius:9px!important}
+.bml-coverflow .cf-pause{display:block;margin:0 auto;background:none;border:0;color:#587493;font-size:11px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:8px}
+.bml-coverflow [hidden]{display:none!important}
+body[data-bml-theme=dark] .bml-coverflow,html.dark .bml-coverflow{background:radial-gradient(ellipse at 50% 35%,#233e60,transparent 65%),#152638!important;border-color:#31445b!important}
+body[data-bml-theme=dark] .bml-coverflow .cf-caption h1,html.dark .bml-coverflow .cf-caption h1{color:#eef5ff!important}
+body[data-bml-theme=dark] .bml-coverflow .cf-caption p,body[data-bml-theme=dark] .bml-coverflow .cf-kicker,body[data-bml-theme=dark] .bml-coverflow .cf-pause{color:#afc5df!important}
+@media(max-width:600px){.hero .hero-banner-shell.bml-coverflow{padding-top:20px!important;border-radius:20px!important}.bml-coverflow #heroBannerTrack{height:255px!important;perspective:650px}.bml-coverflow .cf-book{width:150px;height:225px}.bml-coverflow .hero-banner-arrow{top:135px!important;width:34px!important;height:34px!important}.bml-coverflow .cf-caption{margin-top:4px;min-height:140px}.bml-coverflow .cf-caption p{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.bml-coverflow .cf-book{transition:none}}
+/* V130: only the animated books, matching the supplied reference. */
+body .hero.bml-books-only{background:transparent!important;border:0!important;min-height:0!important;height:auto!important;padding:0!important}
+body .hero.bml-books-only::before,body .hero.bml-books-only::after{display:none!important}
+body .hero.bml-books-only .hero-inner{display:block!important;min-height:0!important;height:auto!important;padding:18px 0 30px!important;gap:0!important}
+body .hero .hero-banner-shell.bml-coverflow,body[data-bml-theme=dark] .hero .hero-banner-shell.bml-coverflow{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;height:auto!important;padding:0!important;backdrop-filter:none!important}
+body .bml-coverflow::before,body .bml-coverflow::after,body .bml-coverflow .bml-banner-placeholder,body .bml-coverflow .cf-caption,body .bml-coverflow .cf-pause,body .bml-coverflow .hero-banner-arrow,body .bml-coverflow #heroBannerDots{display:none!important}
+body .bml-coverflow #heroBannerTrack{height:310px!important;margin:0!important;padding:0!important;background:none!important}
+@media(max-width:600px){body .hero.bml-books-only .hero-inner{padding:12px 0 24px!important}body .bml-coverflow #heroBannerTrack{height:255px!important}}
+body .bml-coverflow #heroBannerTrack{min-height:0!important}
+
+body section.hero.bml-books-only{background:none!important;min-height:0!important;height:auto!important;border:0!important;padding:0!important;margin:0!important}
+body section.hero.bml-books-only .hero-inner{width:100%!important;max-width:1200px!important;padding:16px 0 8px!important;margin:0 auto!important;min-height:0!important;display:block!important}
+body section.hero.bml-books-only .hero-banner-shell{height:310px!important;min-height:0!important;background:none!important;box-shadow:none!important;border:0!important;padding:0!important}
+body section.hero.bml-books-only #heroBannerTrack{height:310px!important;min-height:0!important}
+body section.hero.bml-books-only .hero-banner-arrow,body section.hero.bml-books-only .hero-banner-dots,body section.hero.bml-books-only .bml-banner-placeholder{display:none!important}
+body section.hero.bml-books-only+main.wrap{padding-top:0!important}
+body section.hero.bml-books-only+main #searchPanel{margin-top:0!important}
+@media(max-width:600px){body section.hero.bml-books-only .hero-banner-shell,body section.hero.bml-books-only #heroBannerTrack{height:250px!important}}
+
+/* V132: library name on a single baseline. */
+body .site-header .bml-brand-name{display:block!important;white-space:nowrap!important;font:650 20px/1.25 ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.035em!important;color:#1b3659!important}
+body[data-bml-theme=dark] .site-header .bml-brand-name{color:#dbe7f8!important}
+@media(max-width:1050px){body .site-header .bml-brand-name{font-size:17px!important}}
+@media(max-width:600px){body .site-header .bml-brand-name{font-size:15px!important}}
+@media(max-width:380px){body .site-header .bml-brand-name{font-size:14px!important}}

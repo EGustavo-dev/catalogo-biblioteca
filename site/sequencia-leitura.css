@@ -1,0 +1,22 @@
+.book-cover-wrap.bml-series-card{position:relative!important;background:var(--panel,#f4f7fc)!important;overflow:hidden}
+.bml-series-card>img.book-cover,.bml-series-card>.cover-source,.bml-series-card>.cover-pending-label{display:none!important}
+.bml-series-cover-grid{position:absolute;inset:8px 8px 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:6px}
+.bml-series-cover-grid figure{position:relative;margin:0;min-width:0;min-height:0;display:flex;justify-content:center}
+.bml-series-cover-grid img{width:100%;height:100%;object-fit:contain;display:block;border-radius:3px}
+.bml-series-cover-grid figcaption{position:absolute;left:2px;bottom:2px;background:#1557b0;color:#fff;font-size:10px;line-height:18px;min-width:18px;text-align:center;border-radius:5px;font-weight:700}
+.bml-series-label{position:absolute;bottom:7px;left:4px;right:4px;color:var(--text,#183654);font-size:10px;line-height:14px;text-align:center;font-weight:600}
+.bml-series-note{font-size:12px;line-height:1.5;color:var(--muted,#53667d);margin:7px 0 0}
+#locationBody.bml-series-open .detail-cover,#locationBody.bml-series-open .cover-pending-label{display:none!important}
+#locationBody.bml-series-open .detail-top{grid-template-columns:minmax(0,1fr)!important}
+.bml-reading-order{margin:22px 0;padding:18px 0;border-top:1px solid var(--border,#dce5f0)}
+.bml-reading-order h3{margin:0 0 6px;font-size:18px;color:var(--text,#183654)}
+.bml-reading-order p{margin:0 0 16px;font-size:13px;line-height:1.6;color:var(--muted,#53667d)}
+.bml-reading-order ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.bml-reading-order li{min-width:0;color:var(--text,#183654)}
+.bml-reading-order img{width:100%;aspect-ratio:2/3;object-fit:contain;display:block;border-radius:5px;margin-bottom:8px}
+.bml-reading-order strong{display:block;font-size:12px;margin-bottom:3px;color:var(--text,#183654)}
+.bml-reading-order span{font-size:12px;line-height:1.4;display:block;color:var(--muted,#53667d)}
+@media(max-width:480px){.bml-reading-order ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.bml-series-note{font-size:11px}}
+[data-bml-theme="dark"] .book-cover-wrap.bml-series-card{background:#152239!important}
+[data-bml-theme="dark"] .bml-series-label,[data-bml-theme="dark"] .bml-reading-order h3,[data-bml-theme="dark"] .bml-reading-order strong{color:#e4efff}
+[data-bml-theme="dark"] .bml-series-note,[data-bml-theme="dark"] .bml-reading-order p,[data-bml-theme="dark"] .bml-reading-order span{color:#afc3dc}

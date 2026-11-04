@@ -1,0 +1,81 @@
+/* Catálogo, ferramentas e conta */
+#searchPanel {
+  --v140-border: #dbe6f4;
+  --v140-panel: #fff;
+  --v140-soft: #f3f7fc;
+  --v140-ink: #173659;
+  --v140-muted: #506986;
+  padding: clamp(14px, 3vw, 24px) !important;
+  border: 1px solid var(--v140-border) !important;
+  border-radius: 22px !important;
+  background: var(--v140-panel) !important;
+}
+body[data-bml-theme=dark] #searchPanel {
+  --v140-border: #344963;
+  --v140-panel: #162437;
+  --v140-soft: #20334a;
+  --v140-ink: #edf4ff;
+  --v140-muted: #c4d4e8;
+}
+#searchPanel .search-row { display: flex !important; gap: 10px !important; align-items: end; }
+#searchPanel .search-row > .control-group { flex: 1; min-width: 0; }
+#searchPanel .bml-search-submit { margin: 0 !important; min-width: 96px !important; border-radius: 12px !important; }
+#searchPanel .bml-search-more { min-height: 0 !important; padding: 10px 0 0 !important; border: 0 !important; }
+#searchPanel .bml-filter-action {
+  min-height: 40px; padding: 8px 14px; border: 1px solid var(--v140-border);
+  border-radius: 999px; background: var(--v140-soft); color: var(--v140-ink);
+}
+#searchPanel .filter-bar { margin: 10px 0 0 !important; box-shadow: none !important; }
+#searchPanel .bml-refine { margin: 14px 0 0; padding: 14px 0 0; border-color: var(--v140-border); }
+#searchPanel .bml-refine label { color: var(--v140-muted); }
+#searchPanel .bml-refine :is(select, button) { min-height: 44px; }
+.site-header #bmlToolsMenu.bml-open {
+  top: 12px !important; right: max(12px, env(safe-area-inset-right)) !important;
+  width: min(320px, calc(100vw - 24px)) !important;
+  padding: 8px !important; gap: 2px !important;
+}
+#bmlToolsMenu .tool-action { min-height: 48px !important; }
+#bmlToolsMenu .tool-action small { color: #506986 !important; }
+#bmlToolsMenu .tool-action .count-badge {
+  position: static !important; margin: 0 0 0 auto !important;
+  min-width: 22px; min-height: 22px; align-items: center; justify-content: center;
+}
+#bmlToolsMenu .tool-action .count-badge[hidden] { display: none !important; }
+body[data-bml-theme=dark] #bmlToolsMenu .tool-action small { color: #bbd0ea !important; }
+
+html:not(.library-locked) #authModal .auth-dialog-head {
+  min-height: 48px !important; margin: 0 0 16px !important;
+  padding: 0 42px 10px 0 !important; background: transparent !important;
+  color: #173659 !important; justify-content: start !important;
+}
+html:not(.library-locked) #authModal .auth-heading-lockup { display: none !important; }
+#authModal .bml-profile-heading { display: none; }
+html:not(.library-locked) #authModal .bml-profile-heading {
+  display: block; font-size: 1.125rem; font-weight: 750;
+}
+html:not(.library-locked) #authModal .auth-dialog-head .modal-close {
+  right: 0 !important; top: 0 !important; width: 36px; height: 36px;
+  background: #edf4fc; color: #173659;
+}
+#authLoggedIn .profile-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+#authLoggedIn .profile-actions .btn { width: 100%; min-height: 44px; justify-content: center; font-size: .84rem; }
+#authLoggedIn .profile-actions .owner-action { grid-column: 1 / -1; }
+#authLoggedIn .profile-card { margin-bottom: 14px; }
+body[data-bml-theme=dark] #authModal .bml-profile-heading { color: #edf4ff; }
+
+#schoolProvisionModal .modal { width: min(520px,calc(100% - 24px)); }
+#schoolProvisionModal .bml-reader-note {
+  margin: 0 0 8px; padding: 12px 14px; border-radius: 12px;
+  background: #edf5ff; color: #254a72; font-size: .9rem; line-height: 1.5;
+}
+#schoolProvisionModal .form-field label { text-transform: none; letter-spacing: 0; }
+#schoolProvisionModal .bml-password-hint { font-size: .78rem; color: #506986; }
+body[data-bml-theme=dark] #schoolProvisionModal .bml-reader-note { background: #203954; color: #e1efff; }
+body[data-bml-theme=dark] #schoolProvisionModal .bml-password-hint { color: #bdd0e7; }
+@media (max-width: 480px) {
+  #searchPanel .search-row { gap: 6px !important; }
+  #searchPanel .bml-search-submit { min-width: 72px !important; padding-inline: 9px; }
+}
+@media (max-width: 350px) {
+  #authLoggedIn .profile-actions { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,103 @@
+/*
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+/index.html
+  Cache-Control: no-store
+/v98-modern.css
+  Cache-Control: no-cache
+/v98-modern.js
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+/manifest.webmanifest
+  Cache-Control: no-cache
+
+/
+  Cache-Control: no-store
+/bml-runtime.js
+  Cache-Control: no-store
+
+/bml-v118.css
+  Cache-Control: no-cache
+/bml-v101.js
+  Cache-Control: no-cache
+
+/bml-v118.js
+  Cache-Control: no-cache
+
+/sequencia-leitura.js
+  Cache-Control: no-cache
+/sequencia-leitura.css
+  Cache-Control: no-cache
+
+/colecoes.js
+  Cache-Control: no-cache
+/colecoes.css
+  Cache-Control: no-cache
+/capas-estimadas.js
+  Cache-Control: no-cache
+/capas-v117.js
+  Cache-Control: no-cache
+
+/bml-v123.js
+  Cache-Control: no-cache
+
+/bml-v124.js
+  Cache-Control: no-cache
+
+/bml-v125.css
+  Cache-Control: no-cache
+/bml-v125.js
+  Cache-Control: no-cache
+
+/bml-v126.js
+  Cache-Control: no-cache
+
+/bml-v127.js
+  Cache-Control: no-cache
+
+/bml-v128.js
+  Cache-Control: no-cache
+/capas-v117.js
+  Cache-Control: no-cache
+
+/bml-v129.css
+  Cache-Control: no-cache
+
+/bml-v131.css
+  Cache-Control: no-cache
+/v98-modern.js
+  Cache-Control: no-cache
+
+/bml-v133.css
+  Cache-Control: no-cache
+/bml-v133.js
+  Cache-Control: no-cache
+
+/bml-v134.css
+  Cache-Control: no-cache
+
+/bml-v135.css
+  Cache-Control: no-cache
+
+/privacidade
+  Cache-Control: no-cache
+/privacidade/*
+  Cache-Control: no-cache
+/analytics.js
+  Cache-Control: no-cache
+/analytics-config.js
+  Cache-Control: no-cache
+/privacidade.css
+  Cache-Control: no-cache
+/privacidade-pagina.css
+  Cache-Control: no-cache
+
+/login-assets/*
+  Cache-Control: public, max-age=86400
+
+/catalogo-v138.css
+  Cache-Control: public, max-age=86400

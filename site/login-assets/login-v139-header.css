@@ -1,0 +1,44 @@
+html.library-locked body #authModal .auth-dialog .auth-dialog-head {
+  align-items: center !important;
+  gap: 20px !important;
+  margin: 0 0 24px !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-heading-lockup {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-brand-wordmark {
+  text-align: center !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-caption {
+  display: block !important;
+  color: #bdcbe0 !important;
+  font: 650 .69rem/1.4 system-ui, sans-serif !important;
+  letter-spacing: .15em !important;
+}
+html.library-locked body #authModal .auth-dialog .bml-login-brand {
+  display: block !important;
+  margin: 4px 0 0 !important;
+  color: #f5f7ff !important;
+  font: 730 clamp(1.25rem, 4.5vw, 1.5rem)/1.25 system-ui, sans-serif !important;
+  letter-spacing: -.02em !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro {
+  margin: 12px 0 0 !important;
+  text-align: center;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro h2 {
+  margin: 0 0 6px !important;
+  color: #eef4ff !important;
+  font: 650 1.125rem/1.35 system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro p {
+  margin: 0 auto !important;
+  max-width: 40ch;
+  text-wrap: balance;
+  color: #c1c9d9 !important;
+  font: 400 .875rem/1.5 system-ui, sans-serif !important;
+}

@@ -1,0 +1,7 @@
+.bml-volume-label{font-size:12px;line-height:1.5;color:#1557b0;margin:8px 0 0;font-weight:600}
+.book-cover-wrap img.book-cover,#locationBody img.detail-cover{object-fit:contain!important}
+.bml-collection-order{border-top:1px solid var(--border,#dce5f0);margin-top:22px;padding-top:18px}
+.bml-collection-order h3{font-size:18px;color:var(--text,#183654);margin:0 0 6px}.bml-collection-order p{font-size:13px;color:var(--muted,#53667d);line-height:1.5}
+.bml-collection-order ol{list-style:none;padding:0;display:grid;gap:8px}.bml-collection-order button{font:inherit;text-align:left;width:100%;display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--border,#dce5f0);border-radius:10px;background:var(--panel,#f4f7fc);color:var(--text,#183654);cursor:pointer}.bml-collection-order button[aria-current]{border-color:#2771ca;background:#eef5ff;color:#144e94}.bml-collection-order span{font-size:12px;white-space:nowrap}.bml-collection-order strong{font-size:13px}.bml-collection-order button:focus-visible{outline:3px solid #2877d3;outline-offset:2px}
+[data-bml-theme="dark"] .bml-volume-label{color:#a9d0ff}[data-bml-theme="dark"] .bml-collection-order button{background:#152239;color:#e4efff;border-color:#354760}[data-bml-theme="dark"] .bml-collection-order button[aria-current]{background:#16395c;border-color:#7eb2f1}
+@media(max-width:480px){.bml-collection-order button{align-items:flex-start;gap:8px;padding:10px}}
