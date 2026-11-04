@@ -1,0 +1,23 @@
+{
+  "name": "catalogo-biblioteca",
+  "version": "1.0.0",
+  "scripts": {
+    "footer": "node --import tsx scripts/render-footer.tsx && tailwindcss -i styles/footer.css -o site/footer.css --minify",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "commonjs",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.4",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "lucide-react": "^1.68.0",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,46 @@
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+
+.bml-footer {
+  --footer-surface: #f4f8fd;
+  --footer-ink: #173659;
+  --footer-muted: #506986;
+  --footer-line: #d6e3f2;
+  background: var(--footer-surface) !important;
+  border-top: 1px solid var(--footer-line) !important;
+  color: var(--footer-ink);
+  margin-top: 32px !important;
+  padding: 26px 14px 14px;
+}
+body[data-bml-theme="dark"] .bml-footer {
+  --footer-surface: #19283e;
+  --footer-ink: #edf4ff;
+  --footer-muted: #c4d4e8;
+  --footer-line: #3a506c;
+}
+.bml-footer-inner {
+  @apply mx-auto flex max-w-4xl flex-col items-center text-center;
+}
+.bml-footer .bml-footer-brand {
+  @apply inline-flex items-center gap-2 text-base;
+}
+.bml-footer .bml-footer-mark {
+  @apply grid size-10 shrink-0 place-items-center rounded-xl;
+  background: var(--footer-line);
+}
+.bml-footer .bml-footer-nav {
+  @apply mt-3 flex flex-wrap justify-center gap-x-3 gap-y-1;
+}
+.bml-footer .bml-footer-nav a {
+  @apply inline-flex min-h-11 items-center gap-2 rounded-lg px-2 text-sm;
+}
+.bml-footer .bml-footer-meta {
+  @apply mt-3 flex w-full flex-wrap justify-center gap-x-5 gap-y-1 pt-3 text-xs;
+  border-top: 1px solid var(--footer-line);
+}
+.bml-footer a { color: var(--footer-ink); text-decoration: none; }
+.bml-footer :is(p, .bml-footer-meta, .bml-footer-meta a) { color: var(--footer-muted); }
+.bml-footer p { margin: 7px 0 0; font-size: .875rem; }
+.bml-footer a:hover, .bml-footer a[aria-current="page"] { text-decoration: underline; }
+.bml-footer a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

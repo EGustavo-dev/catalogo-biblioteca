@@ -1,0 +1,66 @@
+/* Busca compacta */
+main #searchPanel {
+  padding: clamp(10px, 1.5vw, 16px) !important;
+  margin-block: 12px 14px !important;
+  border-radius: 16px !important;
+}
+main #searchPanel .search-row { align-items: center; }
+main #searchPanel .searchbox { border-radius: 10px !important; overflow: hidden; }
+main #searchPanel .searchbox input,
+main #searchPanel .bml-search-submit { min-height: 44px !important; height: 44px !important; }
+main #searchPanel .bml-search-more { padding: 6px 0 0 !important; margin: 0 !important; }
+main #searchPanel .bml-filter-action { min-height: 36px; padding: 4px 12px; }
+main #searchPanel:not(.bml-show-filters) .filter-bar { display: none !important; }
+main #searchPanel.bml-show-filters .filter-bar {
+  padding: 10px 0 0 !important; margin: 6px 0 0 !important;
+  border: 0 !important; border-top: 1px solid var(--v140-border) !important;
+}
+main #searchPanel .bml-refine { padding-top: 0; margin-top: 8px; border-top: 0; gap: 8px; }
+main #searchPanel .bml-refine label { gap: 4px; }
+main #searchPanel + section { margin-top: 0 !important; padding-top: 0 !important; }
+
+/* A conta abre sobre o catálogo e oferece uma saída sempre visível. */
+html:not(.library-locked) body #authModal.modal-backdrop {
+  background: #0b1b376b !important;
+  backdrop-filter: blur(5px) !important;
+}
+html:not(.library-locked) body #authModal .auth-dialog-head .modal-close {
+  display: grid !important; place-items: center;
+}
+#authLoggedIn .bml-back-catalog {
+  min-height: 44px; margin-bottom: 12px; justify-content: start;
+  font-size: .875rem;
+}
+
+/* Ficha do livro */
+body #locationModal .modal { width: min(760px, calc(100% - 24px)) !important; }
+body #locationModal .modal-head { padding: 10px 18px !important; }
+body #locationModal .modal-body { padding: clamp(14px, 3vw, 24px) !important; }
+body #locationBody .detail-top {
+  grid-template-columns: clamp(88px, 20vw, 150px) minmax(0, 1fr) !important;
+  align-items: start !important; gap: clamp(12px, 3vw, 24px) !important;
+}
+#locationBody .bml-detail-art { margin: 0; min-width: 0; }
+body #locationBody .bml-detail-art .detail-cover {
+  display: block; width: 100% !important; height: auto !important; aspect-ratio: 2 / 3;
+  box-shadow: none !important;
+}
+body #locationBody .detail-title {
+  font-family: inherit !important; font-size: clamp(1.125rem, 3vw, 1.875rem) !important;
+  margin-bottom: 6px !important;
+}
+body #locationBody .detail-author { margin-bottom: 10px !important; }
+body #locationBody .availability { margin-bottom: 12px !important; }
+body #locationBody .detail-actions { display: flex !important; flex-wrap: wrap; }
+body #locationBody .detail-actions button { min-height: 44px; white-space: normal; }
+body #locationBody .v96-location { margin-top: 18px; padding-top: 14px; }
+#locationBody .v96-location-head h3 { margin: 0; font-size: 1rem; }
+body #locationBody .v96-location-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px; padding: 10px 12px; overflow-wrap: anywhere;
+}
+#locationBody .v96-location-row span { grid-column: 1; font-size: .83rem; }
+#locationBody .v96-location-row strong { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
