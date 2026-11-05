@@ -239,3 +239,51 @@ html.library-locked body #authModal .auth-dialog .auth-dialog-intro p { line-hei
     to { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 }
+
+/* Localização visível nos cartões */
+html body #results .bml-card-location {
+  display: grid; gap: 2px; margin: 8px 8px 10px; padding-top: 8px;
+  border-top: 1px solid var(--v140-border, #dbe6f4);
+  color: var(--bml-ink, #173659); overflow-wrap: anywhere; min-width: 0;
+}
+#results .bml-card-location span { font-size: .68rem; color: var(--bml-muted, #506986); }
+#results .bml-card-location strong { font-size: .76rem; line-height: 1.4; font-weight: 650; }
+html body.bml-list-view #results .bml-card-location { grid-column: 2; margin: 0 0 8px; padding-top: 6px; }
+html body.bml-list-view #results .book-card { grid-auto-rows: auto; }
+body[data-bml-theme=dark] #results .bml-card-location { border-color: #3a506c; }
+
+/* Prazos e revisão */
+#loanList .loan-status.is-overdue { background: #ffeded; color: #a02727; }
+body[data-bml-theme=dark] #loanList .loan-status.is-overdue { background: #54252b; color: #ffc3c8; }
+#loansPane .loan-item { gap: 12px; }
+#loansPane .loan-item > div { min-width: 0; }
+#loansPane .loan-item strong { overflow-wrap: anywhere; }
+#bmlCatalogReview {
+  margin: 0 0 16px; padding: 12px; border: 1px solid #d4e2f2;
+  border-radius: 12px; background: #f5f9ff; color: #173659;
+}
+#bmlCatalogReview summary { cursor: pointer; font-weight: 700; min-height: 32px; }
+#bmlCatalogReview p { font-size: .84rem; line-height: 1.5; }
+#bmlCatalogReview .bml-review-list { list-style: none; padding: 0; margin: 12px 0 0; max-height: 320px; overflow-y: auto; }
+#bmlCatalogReview li { display: grid; gap: 5px; padding: 10px 0; border-top: 1px solid #d4e2f2; }
+#bmlCatalogReview li strong { font-size: .875rem; overflow-wrap: anywhere; }
+#bmlCatalogReview li span { font-size: .78rem; }
+#bmlCatalogReview li .btn { justify-self: start; min-height: 44px; }
+body[data-bml-theme=dark] #bmlCatalogReview { background: #20334a; color: #edf4ff; border-color: #3a506c; }
+body[data-bml-theme=dark] #bmlCatalogReview li { border-color: #3a506c; }
+@media (max-width: 600px) {
+  html body main #searchPanel .search-row { display: grid !important; grid-template-columns: minmax(0, 1fr) auto; }
+  html body main #searchPanel .search-row > .control-group:first-child { grid-column: 1 / -1; }
+  html body main #searchPanel .search-row > .bml-search-more { grid-column: 2; grid-row: 2; }
+  html body main #searchPanel .bml-search-submit { grid-column: 1; grid-row: 2; width: 100%; }
+  html body main #searchPanel :is(input, select) { font-size: 16px !important; }
+  body #favoritesModal .modal, body #adminModal .modal { width: min(100%, 920px); max-height: calc(100dvh - 24px); }
+  body #favoritesModal .modal-body, body #adminModal .modal-body { padding: 14px; }
+  #loansPane .loan-item { flex-direction: column; align-items: stretch; padding: 12px; }
+  #loansPane .loan-item .fav-thumb { width: 52px; height: 76px; flex: 0 0 52px; }
+  #loansPane .loan-item > div > div { min-width: 0; }
+  #loansPane .loan-dates { overflow-wrap: anywhere; line-height: 1.6; }
+  #loansPane .loan-item button { min-height: 44px; }
+  #authLoggedIn .profile-actions { grid-template-columns: 1fr; }
+  html body main.wrap > section:nth-of-type(2) .section-head { flex-wrap: wrap; }
+}
