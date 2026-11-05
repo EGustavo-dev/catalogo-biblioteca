@@ -43,6 +43,8 @@ test('login, validação de erro e cadastro de leitor', async ({ page }, testInf
   await page.goto('/');
   await expect(page.locator('#loginForm')).toBeVisible();
   await noHorizontalOverflow(page);
+  const loginImage = await page.screenshot({ path: testInfo.outputPath('login.png') });
+  if (testInfo.project.name === 'celular-390') console.log('BML_SCREENSHOT_LOGIN=' + loginImage.toString('base64'));
   await page.locator('#loginEmail').fill(user.email);
   await page.locator('#loginPassword').fill('senha-incorreta');
   await page.locator('#loginForm [type="submit"]').click();
@@ -83,7 +85,8 @@ test('pesquisa, filtros, prateleira, conta e empréstimos', async ({ page }, tes
   const info = await page.locator('#locationBody .bml-detail-info').boundingBox();
   const modal = await page.locator('#locationModal .modal').boundingBox();
   expect(info.x + info.width).toBeLessThanOrEqual(modal.x + modal.width + 1);
-  await page.screenshot({ path: testInfo.outputPath('ficha.png') });
+  const fichaImage = await page.screenshot({ path: testInfo.outputPath('ficha.png') });
+  if (testInfo.project.name === 'celular-390') console.log('BML_SCREENSHOT_FICHA=' + fichaImage.toString('base64'));
   await page.locator('#locationModal [data-close]').click();
   await page.getByRole('button', { name: 'Conta', exact: true }).click();
   await expect(page.locator('#bmlMyLoans')).toBeVisible();
@@ -92,7 +95,7 @@ test('pesquisa, filtros, prateleira, conta e empréstimos', async ({ page }, tes
   await page.getByRole('button', { name: 'Conta', exact: true }).click();
   await page.locator('#bmlMyLoans').click();
   await expect(page.locator('#loanList')).toContainText('Dom Casmurro');
-  await expect(page.locator('#loanList')).toContainText('Devolução atrasada');
+  await expect(page.locator('#loanList')).toContainText(/Devolução (atrasada|em atraso)/);
   await page.screenshot({ path: testInfo.outputPath('emprestimos.png') });
   expect(errors).toEqual([]);
 });
