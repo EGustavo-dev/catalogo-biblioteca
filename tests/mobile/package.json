@@ -1,0 +1,7 @@
+{
+  "name": "biblioteca-testes-celular",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}

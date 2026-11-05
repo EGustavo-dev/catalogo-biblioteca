@@ -1,0 +1,33 @@
+name: Testes de celular
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', 'tests/mobile/**', '.github/workflows/mobile.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar ferramentas de teste
+        run: npm --prefix tests/mobile install --ignore-scripts --package-lock=false --no-audit --no-fund
+      - name: Instalar Chromium
+        working-directory: tests/mobile
+        run: npx playwright install --with-deps chromium
+      - name: Testar cadastro, login e catálogo
+        working-directory: tests/mobile
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: testes-celular
+          path: |
+            tests/mobile/test-results/
+            tests/mobile/playwright-report/
+          retention-days: 7
