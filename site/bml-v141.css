@@ -64,3 +64,81 @@ body #locationBody .v96-location-row {
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
+
+/* Filtros alinhados */
+main #searchPanel .searchbox input#search {
+  border-radius: 10px !important; padding-left: 44px !important;
+}
+main #searchPanel .searchbox { overflow: visible; }
+main #searchPanel .search-icon { left: 13px !important; }
+main #searchPanel .bml-search-submit { min-width: 82px !important; }
+main #searchPanel .bml-filter-action[aria-expanded="true"] { border-color: var(--bml-blue); font-weight: 700; }
+main #searchPanel.bml-show-filters .filter-bar {
+  padding: 10px !important; margin: 6px 0 0 !important;
+  border: 1px solid var(--v140-border) !important;
+  border-radius: 12px; background: var(--v140-soft);
+}
+main #searchPanel .bml-refine {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+  margin: 0; padding: 0; border: 0; gap: 8px;
+}
+main #searchPanel .bml-refine :is(label, .control-label) {
+  gap: 4px; font-size: .75rem; color: var(--v140-muted);
+  font-weight: 650; text-transform: none; letter-spacing: 0;
+}
+main #searchPanel .bml-filter-shelf { padding: 0 !important; max-width: none !important; min-width: 0; }
+main #searchPanel .bml-filter-shelf .control-label { margin: 0 0 4px !important; }
+main #searchPanel .bml-refine :is(select, button) {
+  width: 100%; min-height: 44px !important; height: 44px !important;
+  font-size: .875rem !important; border-radius: 9px;
+}
+main #searchPanel #filters {
+  margin: 10px 0 0 !important; padding: 8px 0 0 !important;
+  border-top: 1px solid var(--v140-border);
+}
+main #searchPanel .filters .chips { gap: 5px !important; }
+main #searchPanel .filters .chip { min-height: 32px; padding: 5px 9px !important; }
+html.library-locked body #authModal .auth-dialog .auth-dialog-head {
+  gap: 10px !important; margin: 0 0 16px !important;
+  padding: 0 0 10px !important; text-align: center;
+}
+html.library-locked body #authModal .auth-dialog .auth-heading-lockup {
+  width: 100%; gap: 7px !important; justify-content: center;
+}
+html.library-locked body #authModal .auth-dialog .auth-caption {
+  font-size: .68rem !important; letter-spacing: .11em !important;
+}
+html.library-locked body #authModal .auth-dialog .bml-login-brand {
+  font-size: clamp(1.35rem, 5vw, 1.65rem) !important;
+  line-height: 1.15 !important; margin: 3px 0 0 !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro {
+  width: 100%; margin: 0 !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro h2 {
+  font-size: .95rem !important; margin-bottom: 4px !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro p {
+  font-size: .82rem !important; max-width: 34ch;
+}
+body #locationBody .detail-top { display: grid !important; }
+#locationBody .bml-detail-info { min-width: 0; }
+#locationBody .bml-detail-art .cover-pending-label {
+  position: static; display: block; margin: 6px 0 0; text-align: center;
+}
+body #locationBody.bml-series-open .detail-top { grid-template-columns: minmax(0, 1fr) !important; }
+#locationBody.bml-series-open .bml-detail-art { display: none; }
+@media (max-width: 760px) {
+  main #searchPanel .bml-refine { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main #searchPanel .bml-refine-clear { grid-column: 1 / -1; justify-self: end; width: auto; }
+}
+@media (max-width: 380px) {
+  main #searchPanel .bml-refine { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  body #locationModal.open > .modal { animation: bml-book-open 240ms ease-out both; }
+  @keyframes bml-book-open {
+    from { opacity: 0; transform: translateY(10px) scale(.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}

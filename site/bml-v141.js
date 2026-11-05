@@ -18,6 +18,13 @@
   if (filter && filterBar) {
     filterBar.id = 'catalogFilterBar';
     filter.setAttribute('aria-controls', filterBar.id);
+    const shelf = filterBar.querySelector('.bml-filter-shelf');
+    const fields = filterBar.querySelector('.bml-refine');
+    if (shelf && fields) {
+      fields.prepend(shelf);
+      filterBar.prepend(fields);
+    }
+
   }
 
   if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
