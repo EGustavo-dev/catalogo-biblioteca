@@ -85,11 +85,11 @@ test('pesquisa, filtros, prateleira, conta e empréstimos', async ({ page }, tes
   expect(info.x + info.width).toBeLessThanOrEqual(modal.x + modal.width + 1);
   await page.screenshot({ path: testInfo.outputPath('ficha.png') });
   await page.locator('#locationModal [data-close]').click();
-  await page.locator('#authBtn').click();
+  await page.getByRole('button', { name: 'Conta', exact: true }).click();
   await expect(page.locator('#bmlMyLoans')).toBeVisible();
   await page.locator('.bml-back-catalog').click();
   await expect(page.locator('#authModal')).not.toHaveClass(/open/);
-  await page.locator('#authBtn').click();
+  await page.getByRole('button', { name: 'Conta', exact: true }).click();
   await page.locator('#bmlMyLoans').click();
   await expect(page.locator('#loanList')).toContainText('Dom Casmurro');
   await expect(page.locator('#loanList')).toContainText('Devolução atrasada');
