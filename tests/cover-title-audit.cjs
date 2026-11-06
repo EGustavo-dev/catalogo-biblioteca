@@ -4,7 +4,7 @@ const window={BMLVerifiedCoverV118:g=>g==='verified'?'covers/originais/real.jpg'
 const rawFor=g=>g.raw;const placeholderCover=g=>'clean:'+g.titulo+' / '+g.autor;const RECREATED={};
 const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
 const html=fs.readFileSync(path.join(__dirname,'../site/index.html'),'utf8');
-const source=html.match(/ function strictCover\\(g\\)\\{[^\\n]+/)[0];
+const source=html.split('\n').find(line=>line.startsWith(' function strictCover(g){'));
 const strictCover=vm.runInNewContext('('+source.trim()+')',{location,window,rawFor,placeholderCover,RECREATED,URL});
 const g={key:'old-key',titulo:'Dublinenses',autor:'James Joyce',raw:{cover_url:'https://catalogogastaovalle.netlify.app/covers/completas/old.svg'}};
 assert.equal(strictCover(g),'clean:Dublinenses / James Joyce');
