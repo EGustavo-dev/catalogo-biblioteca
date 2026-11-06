@@ -2,8 +2,8 @@ const { test, expect } = require('@playwright/test');
 const token = 'b'.repeat(64);
 const user = { id: '00000000-0000-4000-8000-000000000001', name: 'Leitor de teste', email: 'leitor@example.invalid', role: 'reader' };
 const books = [
-  { id: 1, titulo: 'Dom Casmurro', autor: 'Machado de Assis', book_key: 'dom casmurro|machado de assis', prateleira: 2, categoria: 'Romance', grupo: 'Romance', qtd: 2, cover_url: 'http://127.0.0.1:4173/covers/originais/a5c9bab5dcc9275a98a7.jpg' },
-  { id: 2, titulo: 'O Cortiço', autor: 'Aluísio Azevedo', book_key: 'o cortico|aluisio azevedo', prateleira: 5, categoria: 'Romance', grupo: 'Romance', qtd: 1, cover_url: 'http://127.0.0.1:4173/covers/originais/129caa0b9d24315ef65c.jpg' }
+  { id: 1, titulo: 'Dom Casmurro', autor: 'Machado de Assis', book_key: 'dom casmurro|machado de assis', prateleira: 2, categoria: 'Romance', grupo: 'Romance', qtd: 2, cover_url: '' },
+  { id: 2, titulo: 'O Cortiço', autor: 'Aluísio Azevedo', book_key: 'o cortico|aluisio azevedo', prateleira: 5, categoria: 'Romance', grupo: 'Romance', qtd: 1, cover_url: 'http://127.0.0.1:4173/covers/originais/ad6511e1068886a0f924.jpg' }
 ];
 async function mockApi(page, authenticated = false) {
   let signedIn = authenticated;
