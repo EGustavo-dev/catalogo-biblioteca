@@ -86,6 +86,8 @@ test('pesquisa, filtros, prateleira, conta e empréstimos', async ({ page }, tes
   await page.screenshot({ path: testInfo.outputPath('filtros.png'), fullPage: true });
   await page.locator('#results .book-card').filter({ hasText: 'Dom Casmurro' }).click();
   await expect(page.locator('#locationModal')).toHaveClass(/open/);
+  await expect(page.getByRole('heading', { name: 'Sobre a obra' })).toBeVisible();
+  await expect(page.locator('#locationBody .bml-synopsis')).toContainText('Bentinho revisita');
   const rows = page.locator('#locationBody .v96-location-row');
   await expect(rows).toHaveCount(4);
   for (const shelf of [2, 3, 4]) {

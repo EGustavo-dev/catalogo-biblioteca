@@ -4022,7 +4022,11 @@ body{background:#e7edf4!important}
    return `<li class="v96-location-row"><b>${esc(label)}</b><span>${esc(category||'Acervo')}</span><strong class="${avail>0?'':'bml-location-neutral'}">${esc(quantity)}</strong></li>`;
   }).join(''):'<li class="v96-location-empty">Localização ainda não informada.</li>';
   const body=document.getElementById('locationBody');if(!body)return;
-  body.innerHTML=`<div class="detail-top"><figure class="bml-detail-art"><img src="${esc(strictCover(g))}" data-real-key="${esc(g.key)}" class="detail-cover" alt="Capa de ${esc(g.titulo)}"></figure><div class="bml-detail-info"><h2 class="detail-title">${esc(g.titulo)}</h2><div class="detail-author">${g.autor?'Autor: '+esc(g.autor):'Autor não informado'}</div>${typeof availabilityMarkup==='function'?availabilityMarkup(g):''}<div class="detail-actions">${typeof isAdmin==='function'&&isAdmin()?`<button class="detail-loan-btn" data-detail-loan="${esc(g.key)}" ${loanDisabled}>${loanLabel}</button>`:''}<button class="btn" data-modal-fav="${esc(g.key)}">${fav?'♥ Remover dos favoritos':'♡ Adicionar aos favoritos'}</button></div></div></div><section class="v96-location"><div class="v96-location-head"><h3>Onde encontrar</h3><span>${shelfCount===0?'Nenhuma prateleira confirmada':shelfCount===1?'1 prateleira':shelfCount+' prateleiras'}</span></div><ul class="v96-location-list" aria-label="Prateleiras e disponibilidade">${rows}</ul></section>`;
+  body.innerHTML=`<div class="detail-top"><figure class="bml-detail-art"><img src="${esc(strictCover(g))}" data-real-key="${esc(g.key)}" class="detail-cover" alt="Capa de ${esc(g.titulo)}"></figure><div class="bml-detail-info"><h2 class="detail-title">${esc(g.titulo)}</h2><div class="detail-author">${g.autor?'Autor: '+esc(g.autor):'Autor não informado'}</div>${typeof availabilityMarkup==='function'?availabilityMarkup(g):''}<div class="detail-actions">${typeof isAdmin==='function'&&isAdmin()?`<button class="detail-loan-btn" data-detail-loan="${esc(g.key)}" ${loanDisabled}>${loanLabel}</button>`:''}<button class="btn" data-modal-fav="${esc(g.key)}">${fav?'♥ Remover dos favoritos':'♡ Adicionar aos favoritos'}</button></div></div></div><section class="bml-synopsis" aria-labelledby="bml-synopsis-title"><h3 id="bml-synopsis-title">Sobre a obra</h3><p aria-live="polite">Sinopse ainda não disponível para esta obra.</p></section><section class="v96-location"><div class="v96-location-head"><h3>Onde encontrar</h3><span>${shelfCount===0?'Nenhuma prateleira confirmada':shelfCount===1?'1 prateleira':shelfCount+' prateleiras'}</span></div><ul class="v96-location-list" aria-label="Prateleiras e disponibilidade">${rows}</ul></section>`;
+  const synopsis = body.querySelector('.bml-synopsis');
+  const ids = new Set((g.rawIds || []).map(String));
+  const isbn = records.find(record => ids.has(String(record.id)) && record.isbn)?.isbn;
+  window.BMLShowSynopsis?.(g, isbn, synopsis);
   const fb=body.querySelector('[data-modal-fav]');if(fb)fb.onclick=async()=>{fb.disabled=true;try{await toggleFavorite(g.key);if(currentUser()&&document.getElementById('locationModal').classList.contains('open'))cleanOpenLocation(g.key)}finally{fb.disabled=false}};
   const lb=body.querySelector('[data-detail-loan]');if(lb&&!lb.disabled)lb.onclick=()=>{if(!currentUser()){closeModal('locationModal');openAuth('Entre ou cadastre-se para continuar com o empréstimo.');return}if(!isAdmin()){closeModal('locationModal');openAuth('O empréstimo precisa ser confirmado pela administração da biblioteca.');return}closeModal('locationModal');openLoan(g.key)};
   if(typeof openModal==='function')openModal('locationModal');
@@ -4049,5 +4053,6 @@ body{background:#e7edf4!important}
 <link rel="stylesheet" href="bml-v141.css">
 <link rel="stylesheet" href="/footer.css">
 <script src="bml-v141.js" defer></script>
+<script src="bml-sinopses.js" defer></script>
 <!-- bml-google-start --><!-- bml-google-end -->
 </body></html>

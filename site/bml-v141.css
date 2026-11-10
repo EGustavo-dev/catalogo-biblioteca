@@ -316,3 +316,15 @@ body #locationBody .v96-location-head span { text-align: end; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+#locationBody .bml-synopsis {
+  margin-top: 18px;
+  padding: 13px 15px;
+  border: 1px solid var(--detail-line);
+  border-radius: 10px;
+  background: var(--detail-surface);
+  color: var(--detail-ink);
+}
+#locationBody .bml-synopsis h3 { margin: 0 0 5px; font-size: 1rem; }
+#locationBody .bml-synopsis p { margin: 0; line-height: 1.55; overflow-wrap: anywhere; }
+#locationBody .bml-synopsis a { display: inline-block; margin-top: 6px; color: var(--detail-accent); font-size: .82rem; text-decoration: underline; }
