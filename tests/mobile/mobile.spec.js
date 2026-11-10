@@ -47,6 +47,7 @@ test('login, validação de erro e cadastro de leitor', async ({ page }, testInf
   await mockApi(page);
   await page.goto('/');
   await expect(page.locator('#loginForm')).toBeVisible();
+  await expect(page.locator('#authModal .auth-dialog-intro p')).toBeHidden();
   await noHorizontalOverflow(page);
   const loginImage = await page.screenshot({ path: testInfo.outputPath('login.png') });
   if (testInfo.project.name === 'celular-390') console.log('BML_SCREENSHOT_LOGIN=' + loginImage.toString('base64'));
@@ -56,6 +57,7 @@ test('login, validação de erro e cadastro de leitor', async ({ page }, testInf
   await expect(page.locator('#authStatus')).toContainText('senha incorretos');
   await page.locator('#authRegisterLink').click();
   await expect(page.locator('#registerForm')).toBeVisible();
+  await expect(page.locator('#authModal .auth-dialog-intro p')).toBeVisible();
   await page.locator('#regName').fill(user.name);
   await page.locator('#regEmail').fill(user.email);
   await page.locator('#regPassword').fill('senha-de-teste-123');

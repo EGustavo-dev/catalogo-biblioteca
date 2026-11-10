@@ -42,3 +42,18 @@ html.library-locked body #authModal .auth-dialog .auth-dialog-intro p {
   color: #c1c9d9 !important;
   font: 400 .875rem/1.5 system-ui, sans-serif !important;
 }
+
+/* Center the sign-in heading and keep the registration instructions. */
+html.library-locked body #authModal:has(#loginForm:not(.hidden)) .auth-dialog-head {
+  justify-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+html.library-locked body #authModal:has(#loginForm:not(.hidden)) .auth-dialog-intro {
+  width: 100%;
+  margin: 0 !important;
+  text-align: center !important;
+}
+html.library-locked body #authModal:has(#loginForm:not(.hidden)) .auth-dialog-intro p {
+  display: none !important;
+}
