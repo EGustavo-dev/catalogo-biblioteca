@@ -57,11 +57,11 @@
     const labels = [...new Set((g.locations || []).map(location =>
       location.location_pending ? 'Localização a confirmar' : shelfDisplay(location.prateleira, location.shelf_label)
     ))];
-    const label = labels.length ? labels.slice(0, 2).join(' · ') +
-      (labels.length > 2 ? ' · +' + (labels.length - 2) : '') : 'Localização a confirmar';
+    const locations = labels.length ? labels : ['Localização a confirmar'];
     return originalCard.apply(this, arguments).replace('</article>',
-      '<div class="bml-card-location" title="' + esc(labels.join(' · ')) + '">' +
-      '<span>Onde encontrar</span><strong>' + esc(label) + '</strong></div></article>');
+      '<div class="bml-card-location"><span>Onde encontrar</span><ul>' +
+      locations.map(label => '<li>' + esc(label) + '</li>').join('') +
+      '</ul></div></article>');
   };
 
   const originalOpenFavorites = openFavorites;

@@ -3543,7 +3543,32 @@ body{background:#e7edf4!important}
  dots.innerHTML=slides.map(({g},i)=>`<button type="button" class="hero-banner-dot" aria-label="Mostrar ${e(g.titulo)}"></button>`).join('');
  const cards=[...track.children],db=[...dots.children],motion=matchMedia('(prefers-reduced-motion: reduce)');let paused=motion.matches||document.body.dataset.bmlMotion==='off',hover=false,focused=false,drag=null;
  state.index=Math.min(state.index,slides.length-1);
- function go(to){state.index=(to+slides.length)%slides.length;const width=cards[0]?.offsetWidth||180;track.style.perspective=(width*4)+'px';cards.forEach((card,i)=>{let offset=((i-state.index)%slides.length+slides.length)%slides.length;if(offset>slides.length/2)offset-=slides.length;const d=Math.abs(offset),r=Math.pow(d,.56);card.style.transform=`translateX(calc(-50% + ${offset*width*1.08}px)) translateZ(${-width*.45*r}px) rotateY(${-Math.sign(offset)*Math.min(38*r,78)}deg)`;card.style.opacity=String(Math.max(0,1-d*.13));card.style.zIndex=100-Math.round(d);card.tabIndex=i===state.index?0:-1;card.setAttribute('aria-current',String(i===state.index))});db.forEach((b,i)=>b.setAttribute('aria-current',String(i===state.index)));const g=slides[state.index].g;caption.querySelector('h1').textContent=g.titulo;caption.querySelector('p').textContent=g.autor||'Autoria a conferir';caption.querySelector('.cf-open').onclick=()=>openLocation(g.key)}
+ const previousOffsets=new WeakMap();
+ function go(to){
+  state.index=(to+slides.length)%slides.length;
+  const width=cards[0]?.offsetWidth||180;
+  track.style.perspective=(width*4)+'px';
+  cards.forEach((card,i)=>{
+   let offset=((i-state.index)%slides.length+slides.length)%slides.length;
+   if(offset>slides.length/2)offset-=slides.length;
+   const previous=previousOffsets.get(card);
+   // Move a recycled cover directly to the opposite edge.
+   card.classList.toggle('cf-recycled',previous!==undefined&&Math.abs(offset-previous)>1);
+   previousOffsets.set(card,offset);
+   const distance=Math.abs(offset),depth=Math.pow(distance,.56);
+   card.style.transform=`translateX(calc(-50% + ${offset*width*1.08}px)) translateZ(${-width*.45*depth}px) rotateY(${-Math.sign(offset)*Math.min(38*depth,78)}deg)`;
+   card.style.opacity='1';
+   card.style.filter=`brightness(${Math.max(.68,1-distance*.08)})`;
+   card.style.zIndex=100-distance;
+   card.tabIndex=i===state.index?0:-1;
+   card.setAttribute('aria-current',String(i===state.index));
+  });
+  db.forEach((button,i)=>button.setAttribute('aria-current',String(i===state.index)));
+  const g=slides[state.index].g;
+  caption.querySelector('h1').textContent=g.titulo;
+  caption.querySelector('p').textContent=g.autor||'Autoria a conferir';
+  caption.querySelector('.cf-open').onclick=()=>openLocation(g.key);
+ }
  function stop(){clearInterval(state.timer);state.timer=null}
  function start(){stop();if(!paused&&!hover&&!focused&&!document.hidden&&slides.length>1&&document.body.dataset.bmlMotion!=='off'&&!motion.matches)state.timer=setInterval(()=>go(state.index+1),5000)}
  function syncPause(){pause.textContent=paused?'Retomar passagem':'Pausar passagem';pause.setAttribute('aria-pressed',String(paused));start()}
@@ -3975,18 +4000,29 @@ body{background:#e7edf4!important}
 
  function cleanOpenLocation(key){
   const g=Array.isArray(grouped)?grouped.find(x=>x.key===key):null;if(!g)return;
-  const locMap=new Map();
-  for(const l of (g.locations||[])){
-   const label=String(l.shelf_label||l.prateleira),k=label+'|'+(l.categoria||'');
-   if(!locMap.has(k))locMap.set(k,{prateleira:l.prateleira,shelf_label:label,categoria:l.categoria||'',qtd:0,unknown:false,entries:0,maximum:0,total:0});
-   const item=locMap.get(k);item.entries++;if(l.qtd==null)item.unknown=true;else{item.total+=Number(l.qtd)||0;item.maximum=Math.max(item.maximum,Number(l.qtd)||0)}item.qtd=item.entries>1?item.maximum:item.total;
+  const locations=new Map();
+  for(const location of g.locations||[]){
+   const label=location.location_pending?'Localização a confirmar':shelfDisplay(location.prateleira,location.shelf_label);
+   if(!locations.has(label))locations.set(label,{shelves:new Map(),categories:new Set(),pending:label.startsWith('Localização')});
+   const entry=locations.get(label);
+   const shelf=Number(location.prateleira);
+   entry.shelves.set(shelf,(entry.shelves.get(shelf)||false)||location.qtd!=null);
+   if(location.categoria)entry.categories.add(location.categoria);
   }
-  const uniq=[...locMap.values()].sort((a,b)=>Number(a.prateleira)-Number(b.prateleira));
-  const fav=typeof favoriteKeys==='function'&&favoriteKeys().has(g.key),available=typeof availableTotal==='function'?availableTotal(g):Number(g.totalQty||0);
-  let loanLabel='Emprestar livro',loanDisabled='';if(available<=0){loanLabel='Livro indisponível';loanDisabled='disabled'}
-  const rows=uniq.length?uniq.map(l=>{const loaned=typeof loanCount==='function'?loanCount(g.key,l.prateleira):0,avail=Math.max(0,Number(l.qtd||0)-loaned);const qtd=l.unknown&&!l.qtd?'Qtd. não informada':`${avail} ${avail===1?'disponível':'disponíveis'}`;return `<div class="v96-location-row"><b>${esc(shelfDisplay(l.prateleira,l.shelf_label))}</b><span>${esc(l.categoria||'Acervo')}</span><strong>${esc(qtd)}</strong></div>`}).join(''):'<div class="v96-location-empty">Localização ainda não informada.</div>';
+  const uniq=[...locations.entries()].sort((a,b)=>Number(a[1].pending)-Number(b[1].pending));
+  const shelfCount=uniq.filter(([,entry])=>!entry.pending).length;
+  const fav=typeof favoriteKeys==='function'&&favoriteKeys().has(g.key),available=availableTotal(g);
+  const loanLabel=available>0?'Emprestar livro':'Livro indisponível';
+  const loanDisabled=available>0?'':'disabled';
+  const rows=uniq.length?uniq.map(([label,entry])=>{
+   const avail=[...entry.shelves.keys()].reduce((total,shelf)=>total+availableAt(g,shelf),0);
+   const quantity=avail>0?`${avail} ${avail===1?'disponível':'disponíveis'}`:
+    [...entry.shelves.values()].some(Boolean)?'Sem exemplares disponíveis':'Quantidade não informada';
+   const category=[...entry.categories].join(' · ');
+   return `<li class="v96-location-row"><b>${esc(label)}</b><span>${esc(category||'Acervo')}</span><strong class="${avail>0?'':'bml-location-neutral'}">${esc(quantity)}</strong></li>`;
+  }).join(''):'<li class="v96-location-empty">Localização ainda não informada.</li>';
   const body=document.getElementById('locationBody');if(!body)return;
-  body.innerHTML=`<div class="detail-top"><figure class="bml-detail-art"><img src="${esc(strictCover(g))}" data-real-key="${esc(g.key)}" class="detail-cover" alt="Capa de ${esc(g.titulo)}"></figure><div class="bml-detail-info"><h2 class="detail-title">${esc(g.titulo)}</h2><div class="detail-author">${g.autor?'Autor: '+esc(g.autor):'Autor não informado'}</div>${typeof availabilityMarkup==='function'?availabilityMarkup(g):''}<div class="detail-actions">${typeof isAdmin==='function'&&isAdmin()?`<button class="detail-loan-btn" data-detail-loan="${esc(g.key)}" ${loanDisabled}>${loanLabel}</button>`:''}<button class="btn" data-modal-fav="${esc(g.key)}">${fav?'♥ Remover dos favoritos':'♡ Adicionar aos favoritos'}</button></div></div></div><section class="v96-location"><div class="v96-location-head"><h3>Onde encontrar</h3><span>${uniq.length===1?'1 localização':uniq.length+' localizações'}</span></div><div class="v96-location-list">${rows}</div></section>`;
+  body.innerHTML=`<div class="detail-top"><figure class="bml-detail-art"><img src="${esc(strictCover(g))}" data-real-key="${esc(g.key)}" class="detail-cover" alt="Capa de ${esc(g.titulo)}"></figure><div class="bml-detail-info"><h2 class="detail-title">${esc(g.titulo)}</h2><div class="detail-author">${g.autor?'Autor: '+esc(g.autor):'Autor não informado'}</div>${typeof availabilityMarkup==='function'?availabilityMarkup(g):''}<div class="detail-actions">${typeof isAdmin==='function'&&isAdmin()?`<button class="detail-loan-btn" data-detail-loan="${esc(g.key)}" ${loanDisabled}>${loanLabel}</button>`:''}<button class="btn" data-modal-fav="${esc(g.key)}">${fav?'♥ Remover dos favoritos':'♡ Adicionar aos favoritos'}</button></div></div></div><section class="v96-location"><div class="v96-location-head"><h3>Onde encontrar</h3><span>${shelfCount===0?'Nenhuma prateleira confirmada':shelfCount===1?'1 prateleira':shelfCount+' prateleiras'}</span></div><ul class="v96-location-list" aria-label="Prateleiras e disponibilidade">${rows}</ul></section>`;
   const fb=body.querySelector('[data-modal-fav]');if(fb)fb.onclick=async()=>{fb.disabled=true;try{await toggleFavorite(g.key);if(currentUser()&&document.getElementById('locationModal').classList.contains('open'))cleanOpenLocation(g.key)}finally{fb.disabled=false}};
   const lb=body.querySelector('[data-detail-loan]');if(lb&&!lb.disabled)lb.onclick=()=>{if(!currentUser()){closeModal('locationModal');openAuth('Entre ou cadastre-se para continuar com o empréstimo.');return}if(!isAdmin()){closeModal('locationModal');openAuth('O empréstimo precisa ser confirmado pela administração da biblioteca.');return}closeModal('locationModal');openLoan(g.key)};
   if(typeof openModal==='function')openModal('locationModal');

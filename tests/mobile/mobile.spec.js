@@ -5,6 +5,11 @@ const books = [
   { id: 1, titulo: 'Dom Casmurro', autor: 'Machado de Assis', book_key: 'dom casmurro|machado de assis', prateleira: 2, categoria: 'Romance', grupo: 'Romance', qtd: 2, cover_url: '' },
   { id: 2, titulo: 'O Cortiço', autor: 'Aluísio Azevedo', book_key: 'o cortico|aluisio azevedo', prateleira: 5, categoria: 'Romance', grupo: 'Romance', qtd: 1, cover_url: 'http://127.0.0.1:4173/covers/originais/ad6511e1068886a0f924.jpg' }
 ];
+books.push(
+  { ...books[0], id: 3, prateleira: 3, qtd: 1 },
+  { ...books[0], id: 4, prateleira: 4, qtd: 3 },
+  { ...books[0], id: 5, prateleira: 145, qtd: 2, location_pending: true },
+);
 async function mockApi(page, authenticated = false) {
   let signedIn = authenticated;
   await page.route('https://ntudlkodpohnveydjikv.supabase.co/functions/v1/library-api/**', async route => {
@@ -81,7 +86,15 @@ test('pesquisa, filtros, prateleira, conta e empréstimos', async ({ page }, tes
   await page.screenshot({ path: testInfo.outputPath('filtros.png'), fullPage: true });
   await page.locator('#results .book-card').filter({ hasText: 'Dom Casmurro' }).click();
   await expect(page.locator('#locationModal')).toHaveClass(/open/);
-  await expect(page.locator('#locationBody .v96-location-row')).toContainText('Prateleira 2');
+  const rows = page.locator('#locationBody .v96-location-row');
+  await expect(rows).toHaveCount(4);
+  for (const shelf of [2, 3, 4]) {
+    await expect(rows.filter({ hasText: 'Prateleira ' + shelf })).toBeVisible();
+  }
+  await expect(rows.filter({ hasText: 'Prateleira 2' })).toContainText('1 disponível');
+  await expect(rows.filter({ hasText: 'Prateleira 4' })).toContainText('3 disponíveis');
+  await expect(rows.last()).toContainText('Localização a confirmar');
+  await expect(page.locator('#locationBody .v96-location-head')).toContainText('3 prateleiras');
   const info = await page.locator('#locationBody .bml-detail-info').boundingBox();
   const modal = await page.locator('#locationModal .modal').boundingBox();
   expect(info.x + info.width).toBeLessThanOrEqual(modal.x + modal.width + 1);

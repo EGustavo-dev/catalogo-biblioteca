@@ -287,3 +287,32 @@ body[data-bml-theme=dark] #bmlCatalogReview li { border-color: #3a506c; }
   #authLoggedIn .profile-actions { grid-template-columns: 1fr; }
   html body main.wrap > section:nth-of-type(2) .section-head { flex-wrap: wrap; }
 }
+
+/* Keep covers opaque while retaining depth through shading. */
+#heroBannerTrack .cf-book { backface-visibility: hidden; }
+#heroBannerTrack .cf-cover { backface-visibility: hidden; }
+#locationBody .v96-location-list,
+#results .bml-card-location ul { list-style: none; padding: 0; margin: 0; }
+#results .bml-card-location ul { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+#results .bml-card-location li { font-size: .76rem; font-weight: 650; }
+body #locationBody .v96-location-row .bml-location-neutral {
+  background: transparent;
+  color: var(--detail-ink);
+}
+body #locationBody .v96-location-row strong {
+  max-inline-size: 15ch;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+body #heroBannerTrack .cf-book.cf-recycled { transition: none !important; }
+
+body #locationBody .v96-location-list { gap: 6px; }
+body #locationBody .v96-location-row { padding-block: 10px !important; }
+body #locationBody .v96-location-head { align-items: baseline; gap: 10px; }
+body #locationBody .v96-location-head span { text-align: end; }
+@media (min-width: 650px) {
+  body #locationBody .v96-location-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
