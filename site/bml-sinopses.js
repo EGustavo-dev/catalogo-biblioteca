@@ -1,5 +1,30 @@
 (() => {
   const descriptions = {
+    "livro do desassossego|fernando pessoa": "Em fragmentos atribuídos principalmente a Bernardo Soares, um ajudante de guarda-livros em Lisboa observa a cidade, sonha e reflete sobre a solidão e o cotidiano.",
+    "o conto da aia|margaret atwood": "Em Gilead, uma teocracia que controla a reprodução, Offred tenta sobreviver enquanto recorda a vida que lhe foi tirada.",
+    "o rei de amarelo|robert w chambers": "Uma peça proibida e perturbadora liga parte dos contos desta coletânea, em que arte, obsessão e acontecimentos sobrenaturais desestabilizam os personagens.",
+    "onde foi que eu errei|michele borba": "A educadora propõe estratégias práticas para lidar com conflitos e comportamentos difíceis das crianças, com orientações para a convivência em família.",
+    "voce pode fazer a diferenca|stacey abrams": "A autora usa sua trajetória para discutir como pessoas com menos acesso a oportunidades podem enfrentar barreiras e desenvolver sua capacidade de liderar.",
+    "fazer amigos na era da solidao|adam smiley poswolsky": "O autor apresenta práticas para fazer novas amizades, retomar vínculos e cultivar relações mais próximas em uma época marcada pelo isolamento.",
+    "primeira manha|jean claude kaufmann": "O sociólogo analisa como gestos e expectativas da primeira manhã juntos revelam muito sobre o início de uma relação amorosa.",
+    "acesso a justica e cidadania|maria aparecida lucca caovilla": "A obra discute o acesso à justiça e sua relação com o exercício da cidadania, com atenção às barreiras enfrentadas por quem precisa de assistência jurídica.",
+    "empoderamento feminino colecao slam|emerson alcalde org": "Antologia organizada por Emerson Alcalde que reúne poemas de slam sobre experiências de mulheres, desigualdade e afirmação de suas vozes.",
+    "zezinho o dono da porquinha preta|jair vitoria": "Zezinho se afeiçoa a uma porquinha e precisa lidar com o destino que os adultos planejam para ela. A história explora o vínculo entre uma criança e um animal.",
+    "as aventuras de xisto|lucia machado de almeida": "Xisto parte com seu companheiro Bruzo e vive aventuras em um mundo de inspiração medieval, com perigos e encontros fantásticos.",
+    "veneno digital|walcyr carrasco": "Camila muda de cidade depois que o pai perde o emprego. Ao tentar se adaptar e fazer novas amizades, vê sua vida se complicar com conflitos que passam pelo mundo digital.",
+    "onde esta daisy mason|cara hunter": "Daisy, de oito anos, desaparece durante uma festa de família. O investigador Adam Fawley busca respostas entre vizinhos e parentes cujos relatos deixam lacunas.",
+    "misterio em windsor|s j bennett": "Após a morte de um convidado no castelo de Windsor, a rainha Elizabeth II investiga discretamente o caso, contando com a ajuda de sua secretária.",
+    "desenfreados parte i|kelly m": "Ryen guarda uma paixão pelo amigo do irmão, Kellan. Uma tragédia muda a vida dos dois e deixa perguntas que reaparecem quando seus caminhos voltam a se cruzar.",
+    "desenfreados parte ii|kelly m": "A segunda parte retoma a relação conturbada de Ryen e Kellan, marcada por um reencontro, segredos e consequências do passado.",
+    "taming 7 os garotos de tommen livro 5|chloe walsh": "Gibsie usa o humor para esconder um passado doloroso. Claire, que o conhece desde a infância, tenta se aproximar quando ele mais precisa de apoio.",
+    "assistente do vilao|hannah nicole maehrer": "Evie Sage aceita trabalhar para o temido Vilão para sustentar a família. Entre tarefas inusitadas e um possível sabotador, ela começa a enxergar o chefe de outra forma.",
+    "era uma vez um coracao partido|stephanie garber": "Evangeline faz um acordo com Jacks, o Príncipe de Copas, para impedir um casamento. A barganha a leva a um mundo de magia em que promessas têm consequências.",
+    "as viagens de gulliver|jonathan swift": "Gulliver viaja por terras povoadas por seres como os minúsculos habitantes de Lilipute e os gigantes de Brobdingnag. Suas aventuras satirizam costumes e instituições humanas.",
+    "daqui nao saio|marco balzano": "Trina resiste às pressões do fascismo e da guerra em um povoado alpino, ameaçado também por um projeto que pode submergir suas casas.",
+    "na ponta dos pes|adair de aguiar neitzel maria lindamir de aguiar neitzel": "Uma menina sonha em ser equilibrista. Seu desejo conduz uma história ilustrada sobre imaginação e a descoberta do que se quer fazer.",
+    "noites brancas|fiodor dostoievski": "Um jovem solitário conhece Nástienka durante suas caminhadas noturnas por São Petersburgo. Em poucos encontros, ele se apaixona enquanto ela espera pelo retorno de outro homem.",
+    "mulherzinhas|louisa may alcott": "As irmãs Meg, Jo, Beth e Amy March crescem nos Estados Unidos durante a Guerra Civil. Entre perdas, dificuldades e sonhos, cada uma procura seu próprio caminho.",
+    "blue period vol 1|tsubasa yamaguchi": "Yatora, um estudante que parece satisfeito com a própria vida, descobre a pintura e passa a encarar o desafio de se expressar pela arte.",
     'dom casmurro|machado de assis': 'Bentinho revisita sua juventude e seu casamento com Capitu. Ao narrar suas lembranças, ele mistura afeto, ciúme e suspeitas, deixando ao leitor a tarefa de avaliar sua versão.',
     'dom casmurro|toni brandao': 'Nesta adaptação do romance de Machado de Assis, Bentinho revisita sua história com Capitu e as suspeitas que marcaram seu casamento.',
     'o cortico|aluisio azevedo': 'A vida dos moradores de um cortiço no Rio de Janeiro se entrelaça com a ambição de seu proprietário, João Romão. O romance retrata exploração, desigualdade e disputas por ascensão social.',
@@ -21,6 +46,8 @@
     'memorias postumas de bras cubas|machado de assis': 'Depois de morto, Brás Cubas narra episódios da própria vida, incluindo amores, ambições e fracassos. Sua franqueza irônica expõe os privilégios e a hipocrisia da sociedade em que viveu.',
     'a hora da estrela|clarice lispector': 'Macabéa, uma jovem nordestina que trabalha como datilógrafa no Rio de Janeiro, vive entre dificuldades e sonhos modestos. O narrador Rodrigo S. M. questiona seu papel ao contar essa história.'
   };
+  const minimumAges = new Map([["o rei de amarelo|robert w chambers",15],["desenfreados parte i|kelly m",15],["desenfreados parte ii|kelly m",15],["taming 7 os garotos de tommen livro 5|chloe walsh",15]]);
+  window.BMLMinimumReadingAge = key => minimumAges.get(key);
   const lookups = new Map();
   const isbnValue = value => String(value || '').replace(/[^0-9X]/gi, '').toUpperCase();
   const queryPart = value => String(value || '').replace(/["\\]/g, ' ').trim();
@@ -77,6 +104,14 @@
 
   window.BMLShowSynopsis = function(book, isbn, section) {
     const paragraph = section.querySelector('p');
+    const age = minimumAges.get(book.key);
+    if (age) {
+      const notice = document.createElement('p');
+      const label = document.createElement('strong');
+      label.textContent = 'Regra da biblioteca: leitura a partir de ' + age + ' anos.';
+      notice.append(label);
+      section.before(notice);
+    }
     const local = descriptions[norm(book.titulo) + '|' + norm(book.autor)] || descriptions[book.key];
     if (typeof local === 'string') {
       paragraph.textContent = local;
