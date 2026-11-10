@@ -47,6 +47,7 @@ test('login, validação de erro e cadastro de leitor', async ({ page }, testInf
   await mockApi(page);
   await page.goto('/');
   await expect(page.locator('#loginForm')).toBeVisible();
+  await expect(page.locator('#authModal .auth-dialog-intro p')).toBeEmpty();
   await expect(page.locator('#authModal .auth-dialog-intro p')).toBeHidden();
   await noHorizontalOverflow(page);
   const loginImage = await page.screenshot({ path: testInfo.outputPath('login.png') });

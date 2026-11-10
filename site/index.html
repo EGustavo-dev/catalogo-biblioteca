@@ -559,7 +559,7 @@ html,body{min-width:100%;width:100%;max-width:100%;overflow-x:hidden;overscroll-
 <link rel="stylesheet" href="privacidade.css">
 <script src="analytics-config.js" defer></script><script src="analytics.js" defer></script>
 <link rel="stylesheet" href="/login-assets/login-v137.css">
-<link rel="stylesheet" href="/login-assets/login-v139-header.css">
+<link rel="stylesheet" href="/login-assets/login-v139-header.css?v=152">
 <link rel="stylesheet" href="/catalogo-v138.css">
 </head>
 <body id="inicio">
@@ -663,7 +663,7 @@ html,body{min-width:100%;width:100%;max-width:100%;overflow-x:hidden;overscroll-
  </div>
  <div class="modal-body auth-dialog-body">
  <div id="authLoggedOut">
-  <div class="auth-dialog-intro"><h2>Bem-vindo <span class="auth-intro-dot">de volta!</span></h2><p>Faça login e continue sua leitura.</p></div>
+  <div class="auth-dialog-intro"><h2>Bem-vindo <span class="auth-intro-dot">de volta!</span></h2><p></p></div>
   <div class="auth-tabs" role="tablist" aria-label="Acesso à biblioteca"><button id="loginTab" class="active" type="button" role="tab" aria-selected="true" aria-controls="loginForm">Entrar</button><button id="registerTab" type="button" role="tab" aria-selected="false" aria-controls="registerForm">Criar conta</button></div>
   <div class="auth-note" id="authNote">Use seu e-mail e senha. Confirme seu e-mail para ativar a conta de leitor; somente o proprietário concede cargos administrativos.</div>
   <div class="auth-inline-message" id="authStatus" role="status" aria-live="polite" aria-atomic="true" hidden></div>
@@ -3171,7 +3171,7 @@ html,body{max-width:100%;overflow-x:hidden}button,a,input,select{touch-action:ma
   }
   window.gastaoAuthStatus=setInlineStatus;
   function showLogin(){
-    document.querySelector('.auth-dialog-intro h2').innerHTML='Bem-vindo <span class="auth-intro-dot">de volta!</span>';document.querySelector('.auth-dialog-intro p').textContent='Faça login e continue sua leitura.';
+    document.querySelector('.auth-dialog-intro h2').innerHTML='Bem-vindo <span class="auth-intro-dot">de volta!</span>';document.querySelector('.auth-dialog-intro p').textContent='';
     loginForm.classList.remove('hidden');registerForm.classList.add('hidden');
     loginTab.classList.add('active');registrationTab.classList.remove('active');
     registrationTab.setAttribute('aria-selected','false');loginTab.setAttribute('aria-selected','true');
@@ -4041,7 +4041,7 @@ body{background:#e7edf4!important}
 
 <script src="v98-modern.js" defer></script>
 <link rel="stylesheet" href="bml-v118.css">
-<script src="bml-v101.js" defer></script>
+<script src="bml-v101.js?v=152" defer></script>
 <script src="bml-v118.js" defer></script>
 <div id="libraryDockRoot"></div><link rel="stylesheet" href="interface-tailwind.css"><link rel="stylesheet" href="interface-v118.css"><script src="interface-v118.js" defer></script><script src="capas-estimadas.js" defer></script><script src="capas-v117.js" defer></script><link rel="stylesheet" href="sequencia-leitura.css"><script src="sequencia-leitura.js" defer></script><link rel="stylesheet" href="colecoes.css"><script src="colecoes.js" defer></script><script src="bml-v123.js" defer></script>
 <script src="bml-v124.js" defer></script>

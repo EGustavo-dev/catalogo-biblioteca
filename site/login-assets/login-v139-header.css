@@ -57,3 +57,15 @@ html.library-locked body #authModal:has(#loginForm:not(.hidden)) .auth-dialog-in
 html.library-locked body #authModal:has(#loginForm:not(.hidden)) .auth-dialog-intro p {
   display: none !important;
 }
+
+html.library-locked body #authModal .auth-dialog .auth-dialog-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+html.library-locked body #authModal .auth-dialog .auth-dialog-intro {
+  align-self: stretch;
+  text-align: center !important;
+}
+#authModal .auth-dialog-intro p:empty { display: none !important; }
