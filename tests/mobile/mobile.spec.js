@@ -53,7 +53,13 @@ test('login, validação de erro e cadastro de leitor', async ({ page }, testInf
   const loginImage = await page.screenshot({ path: testInfo.outputPath('login.png') });
   if (testInfo.project.name === 'celular-390') console.log('BML_SCREENSHOT_LOGIN=' + loginImage.toString('base64'));
   await page.locator('#loginEmail').fill(user.email);
-  await page.locator('#loginPassword').fill('senha-incorreta');
+  const password = page.locator('#loginPassword');
+  await password.fill('senha-incorreta');
+  await page.getByRole('button', { name: 'Mostrar senha', exact: true }).tap();
+  await expect(password).toHaveAttribute('type', 'text');
+  await page.getByRole('button', { name: 'Ocultar senha', exact: true }).tap();
+  await expect(password).toHaveAttribute('type', 'password');
+  await expect(password).toHaveValue('senha-incorreta');
   await page.locator('#loginForm [type="submit"]').click();
   await expect(page.locator('#authStatus')).toContainText('senha incorretos');
   await page.locator('#authRegisterLink').click();

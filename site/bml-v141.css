@@ -328,3 +328,43 @@ body #locationBody .v96-location-head span { text-align: end; }
 #locationBody .bml-synopsis h3 { margin: 0 0 5px; font-size: 1rem; }
 #locationBody .bml-synopsis p { margin: 0; line-height: 1.55; overflow-wrap: anywhere; }
 #locationBody .bml-synopsis a { display: inline-block; margin-top: 6px; color: var(--detail-accent); font-size: .82rem; text-decoration: underline; }
+
+/* Controle de senha com espaço próprio e alvo de toque. */
+html body #authModal .auth-dialog .auth-input-wrap:has(.auth-show-pass) input {
+  padding-inline-end: 96px !important;
+}
+html body #authModal .auth-dialog .auth-show-pass {
+  position: absolute; inset-inline-end: 4px; top: 50%; transform: translateY(-50%);
+  z-index: 2; display: inline-grid; place-items: center;
+  min-width: 76px; min-height: 44px; padding: 0 8px;
+  border: 1px solid currentColor; border-radius: 9px;
+  font-size: .8rem !important; line-height: 1.2; white-space: nowrap;
+}
+#authModal .auth-show-pass:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  html.library-locked body #authModal {
+    align-items: start !important;
+    padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)) !important;
+  }
+  html.library-locked body #authModal .auth-dialog {
+    width: min(100%, 428px) !important;
+    padding: 18px clamp(12px, 4vw, 22px) !important;
+    margin-block: auto !important;
+  }
+  html.library-locked body #authModal .bml-auth-form-panel {
+    padding: 0 !important; min-width: 0;
+  }
+  html body #authModal .auth-dialog .auth-input-wrap input { font-size: 16px !important; }
+  #authModal .auth-switch { line-height: 1.5; }
+  #authModal .auth-switch button, #authModal .bml-recovery summary { min-height: 44px; align-content: center; }
+  #libraryDockRoot { min-width: 0; max-width: 100%; }
+  #libraryDockRoot .library-dock { gap: 3px; padding: 4px; }
+  #libraryDockRoot .library-dock-item { width: clamp(38px, 11.2vw, 44px); height: 44px; }
+  main #searchPanel .search-row { grid-template-columns: minmax(0, 1fr) auto !important; gap: 6px !important; }
+  main #searchPanel .searchbox { min-width: 0 !important; }
+  main #searchPanel .searchbox input#search { font-size: 16px !important; }
+  main #searchPanel .bml-filter-action { min-height: 44px; }
+  body #locationModal .modal { max-height: calc(100dvh - 24px) !important; }
+  body #locationBody .detail-actions button { max-width: 100%; }
+}

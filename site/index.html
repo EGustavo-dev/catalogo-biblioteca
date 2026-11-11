@@ -3152,11 +3152,18 @@ html,body{max-width:100%;overflow-x:hidden}button,a,input,select{touch-action:ma
   document.getElementById('accessLoginBtn').onclick=()=>document.getElementById('authBtn').click();
   document.getElementById('accessRegisterBtn').onclick=()=>document.getElementById('registerQuickBtn').click();
 
-  document.querySelectorAll('[data-toggle-password]').forEach(button=>button.addEventListener('click',()=>{
-    const field=document.getElementById(button.dataset.togglePassword);const visible=field.type==='password';
-    field.type=visible?'text':'password';button.textContent=visible?'Ocultar':'Mostrar';
-    button.setAttribute('aria-pressed',String(visible));button.setAttribute('aria-label',visible?'Ocultar senha':'Mostrar senha');field.focus();
-  }));
+  document.querySelectorAll('[data-toggle-password]').forEach(button => {
+    const field = document.getElementById(button.dataset.togglePassword);
+    if (!field) return;
+    button.setAttribute('aria-controls', field.id);
+    button.addEventListener('click', () => {
+      const showPassword = field.type === 'password';
+      field.type = showPassword ? 'text' : 'password';
+      button.textContent = showPassword ? 'Ocultar' : 'Mostrar';
+      button.setAttribute('aria-pressed', String(showPassword));
+      button.setAttribute('aria-label', showPassword ? 'Ocultar senha' : 'Mostrar senha');
+    });
+  });
   const loginTab=document.getElementById('loginTab');
   const quickButton=document.getElementById('registerQuickBtn');
   const loginForm=document.getElementById('loginForm');
