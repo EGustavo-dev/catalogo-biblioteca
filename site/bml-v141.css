@@ -368,3 +368,10 @@ html body #authModal .auth-dialog .auth-show-pass {
   body #locationModal .modal { max-height: calc(100dvh - 24px) !important; }
   body #locationBody .detail-actions button { max-width: 100%; }
 }
+
+@media (max-width: 380px) {
+  #libraryDockRoot .library-dock { flex-wrap: wrap; justify-content: center; max-width: 100%; }
+  main #searchPanel .search-row { grid-template-columns: minmax(0, 1fr) !important; }
+  main #searchPanel .search-row > * { min-width: 0 !important; max-width: 100%; }
+  main #searchPanel .bml-search-submit { width: 100%; }
+}
